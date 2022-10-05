@@ -8,6 +8,11 @@ public class ShowGreetings {
         Scanner scanner = new Scanner(System.in);
         System.out.printf("Enter your name: ");
         String name = scanner.nextLine();
-        System.out.printf("Hello, " +name);
+        System.out.printf("Enter your age:" );
+        int number = scanner.nextInt();
+
+        System.out.printf("Hello, " +name + " " + "Age =" +number);
+
+
     }
 }
