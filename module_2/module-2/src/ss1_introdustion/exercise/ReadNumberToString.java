@@ -1,4 +1,4 @@
-package ss1_introduction.exercise;
+package ss1_introdustion.exercise;
 
 import com.sun.org.apache.bcel.internal.classfile.SourceFile;
 

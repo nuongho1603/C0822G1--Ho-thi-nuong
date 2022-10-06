@@ -1,7 +1,5 @@
 package ss1_introduction.exercise;
 
-import com.sun.org.apache.bcel.internal.classfile.SourceFile;
-
 import java.util.Scanner;
 
 public class ReadNumberToString {
