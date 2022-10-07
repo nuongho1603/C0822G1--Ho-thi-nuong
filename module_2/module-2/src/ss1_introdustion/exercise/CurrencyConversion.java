@@ -1,4 +1,4 @@
-package ss1_introdustion.exercise.codegym;
+package ss1_introdustion.exercise;
 
 import java.util.Scanner;
 
@@ -8,9 +8,9 @@ public class CurrencyConversion {
 //        double usd;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Moi ban nhap so tien USD: ");
-       double usd = Double.parseDouble(scanner.nextLine());
-        double quydoi = usd * vnd;
-        System.out.println("Gia tri VND" +quydoi);
+        double usd = Double.parseDouble(scanner.nextLine());
+        double exchange = usd * vnd;
+        System.out.println("Gia tri VND" + exchange);
     }
 }
 

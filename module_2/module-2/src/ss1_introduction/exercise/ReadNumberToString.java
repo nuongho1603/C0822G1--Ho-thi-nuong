@@ -95,7 +95,7 @@ public class ReadNumberToString {
         }
     }
 
-    public static String abd(int number) {
+    public static String hundreds(int number) {
         switch (number) {
             case 1:
                 return "one hundred";
@@ -142,19 +142,19 @@ public class ReadNumberToString {
                     int units = number - (dozens * 10);
                     System.out.println("So " + number + " : " + dozens(dozens) + " " + units(units));
                 } else {
-                    String hangChuc = " ";
+                    String dozen = " ";
                     int hundred = number / 100;
                     int dozens = (number - (hundred * 100));
                     if (dozens <= 10) {
-                        hangChuc = units(dozens);
+                        dozen = units(dozens);
                     } else if (dozens < 20) {
-                        hangChuc = numberTeen(dozens);
+                        dozen = numberTeen(dozens);
                     } else if (dozens < 100) {
                         int a = dozens / 10;
                         int b = dozens - (a * 10);
-                        hangChuc = dozens(a) + " " + units(b);
+                        dozen = dozens(a) + " " + units(b);
                     }
-                    System.out.println("So " + number + " : " + units(hundred) + " hundred "  + hangChuc);
+                    System.out.println("So " + number + " : " + units(hundred) + " hundred "  + dozen);
                 }
                 break;
             } else {
