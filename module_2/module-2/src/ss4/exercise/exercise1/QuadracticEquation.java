@@ -1,4 +1,4 @@
-package ss4.exercise;
+package ss4.exercise.exercise1;
 
 public class QuadracticEquation {
     private double a;
@@ -15,17 +15,17 @@ public class QuadracticEquation {
         this.b = b;
     }
 
-    public double getA() {
-        return a;
-    }
-
-    public void setA(double a) {
-        this.a = a;
-    }
-
-    public double getB() {
-        return b;
-    }
+//    public double getA() {
+//        return a;
+//    }
+//
+//    public void setA(double a) {
+//        this.a = a;
+//    }
+//
+//    public double getB() {
+//        return b;
+//    }
 
     public void setB(double b) {
         this.b = b;
@@ -40,13 +40,13 @@ public class QuadracticEquation {
     }
 
     public double getDiscriminant() {
-        return this.b * this.b - 4 * this.a * this.c;
+        return (this.b * this.b - 4 * this.a * this.c);
     }
 
     public double getRoot1() {
         double root1 = 0;
         if (this.getDiscriminant() >= 0) {
-            root1 = (-this.b + Math.sqrt(this.getDiscriminant() / (2 * this.a)));
+            root1 = (-this.b + Math.sqrt(this.getDiscriminant())) / (2 * this.a);
         }
         return root1;
     }
@@ -54,8 +54,16 @@ public class QuadracticEquation {
     public double getRoot2() {
         double root2 = 0;
         if (this.getDiscriminant() >= 0) {
-            root2 = (-this.b - Math.sqrt(this.getDiscriminant() / (2 * this.a)));
+            root2 = (-this.b - Math.sqrt(this.getDiscriminant()))/ (2 * this.a);
         }
         return root2;
     }
+
+//    public double getRoot3() {
+//        double root3 = 0;
+//        if (this.getDiscriminant() == 0) {
+//            root3 = (-this.b / (2 * this.a));
+//        }
+//        return root3;
+//    }
 }
