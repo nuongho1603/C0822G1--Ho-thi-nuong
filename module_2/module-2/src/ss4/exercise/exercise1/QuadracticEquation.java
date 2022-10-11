@@ -54,16 +54,8 @@ public class QuadracticEquation {
     public double getRoot2() {
         double root2 = 0;
         if (this.getDiscriminant() >= 0) {
-            root2 = (-this.b - Math.sqrt(this.getDiscriminant()))/ (2 * this.a);
+            root2 = (-this.b - Math.sqrt(this.getDiscriminant())) / (2 * this.a);
         }
         return root2;
     }
-
-//    public double getRoot3() {
-//        double root3 = 0;
-//        if (this.getDiscriminant() == 0) {
-//            root3 = (-this.b / (2 * this.a));
-//        }
-//        return root3;
-//    }
 }
