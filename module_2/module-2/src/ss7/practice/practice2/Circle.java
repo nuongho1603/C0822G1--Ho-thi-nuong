@@ -1,6 +1,9 @@
 
-package ss6.practice.practice1;
-public class Circle extends Shape{
+package ss7.practice.practice2;
+
+import ss6.practice.practice1.Shape;
+
+public class Circle extends Shape {
     private double radius = 1.0;
 
     public  Circle(double v){
@@ -31,7 +34,6 @@ public class Circle extends Shape{
     public String toString() {
         return "A Circle with radius= "
                 + getRadius()
-                + ",which is a subclass of "
-                + super.toString();
+                + ",which is a subclass of ";
     }
 }

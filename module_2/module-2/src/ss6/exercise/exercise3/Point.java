@@ -1,13 +1,13 @@
-package ss6.exercise.exercise2;
+package ss6.exercise.exercise3;
 
-public class Point2D {
+public class Point {
     private float x = 0.0f;
     private float y = 0.0f;
 
-    public Point2D() {
+    public Point() {
     }
 
-    public Point2D(float x, float y) {
+    public Point(float x, float y) {
         this.x = x;
         this.y = y;
     }
@@ -28,17 +28,20 @@ public class Point2D {
         this.y = y;
     }
 
-    public void setXY(float x, float y) {
+    public void setXY(float x,float y){
     }
 
-    public float[] getXY() {
-        float[] arr = {this.x, this.y};
+    public float[] getXY(){
+        float[] arr={this.x,this.y};
         return arr;
     }
 
     @Override
     public String toString() {
-        return "Point2D : " +
-                String.format("%s - %s", this.x, this.y);
+        return String.format("POINT2D : "+"%s - %s",this.x,this.y);
+//        return "(" +
+//                "x=" + x +
+//                ", y=" + y +
+//                ')';
     }
 }

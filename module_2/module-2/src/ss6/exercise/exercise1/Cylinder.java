@@ -25,7 +25,7 @@ public class Cylinder extends Circle {
         this.height = height;
     }
 
-    public double volume(){
+    public double getVolume(){
         return getArea()*this.height;
     }
 
