@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
-class FizzBuzzTest {
+class FizzBuzzTest extends FizzBuzz{
 
     @Test
     void testFizz3() {
@@ -43,7 +43,7 @@ class FizzBuzzTest {
         assertEquals(expected, result);
     }
 
-//    @org.junit.jupiter.api.DynamicTest
+ @Test
     void testFizzBuzz15() {
         int number = 15;
         String expected = "FizzBuzz";
