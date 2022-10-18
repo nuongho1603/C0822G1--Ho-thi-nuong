@@ -1,10 +1,10 @@
 package FuramaResort.Controllers;
 
-import FuramaResort.Service.ResortService;
+import FuramaResort.Service.Service;
 
 import java.util.Scanner;
 
-public class FuramaController implements ResortService {
+public class FuramaController implements Service {
     public void displayMainMenu() {
         Scanner scanner = new Scanner(System.in);
         int number;

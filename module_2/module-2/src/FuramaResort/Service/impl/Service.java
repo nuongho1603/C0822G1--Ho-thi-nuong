@@ -1,5 +1,5 @@
 package FuramaResort.Service.impl;
 
-public class FuramaService {
+public class Service {
 //    private static
 }

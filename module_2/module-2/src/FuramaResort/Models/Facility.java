@@ -1,6 +1,6 @@
 package FuramaResort.Models;
 
-public class Facility {
+public abstract class Facility {
    public String nameService;
 
    public double area;
