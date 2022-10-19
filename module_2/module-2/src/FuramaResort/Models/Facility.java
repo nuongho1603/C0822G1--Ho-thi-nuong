@@ -1,12 +1,11 @@
 package FuramaResort.Models;
 
 public abstract class Facility {
-   public String nameService;
-
-   public double area;
-   public double cost;
-   public int amount;
-   public String rentalType;
+   private String nameService;
+   private double area;
+   private double cost;
+   private int amount;
+   private String rentalType;
 
    public Facility() {
    }

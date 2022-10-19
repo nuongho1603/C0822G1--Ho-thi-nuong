@@ -3,13 +3,13 @@ package FuramaResort.Models;
 import java.io.StringReader;
 
 public abstract class Person {
-    public int id;
-    public String nickName;
-    public int dateOfBirth;
-    public boolean gender;
-    public int CMND;
-    public int phone;
-    public String email;
+    protected int id;
+    protected String nickName;
+    protected int dateOfBirth;
+    protected boolean gender;
+    protected int CMND;
+    protected int phone;
+    protected String email;
 
     public Person() {
     }
