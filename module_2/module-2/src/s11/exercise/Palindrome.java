@@ -12,18 +12,24 @@ public class Palindrome {
         Stack<String> stringStack = new Stack<>();
         Queue<String> stringQueue = new LinkedList<>();
         System.out.print("Enter string: ");
-        String str = scanner.nextLine();
+        String str = scanner.nextLine().toLowerCase();
         String[] characters = str.split("");
 
-        for(String string : characters){
-            stringStack.push(string.toLowerCase());
-            stringQueue.add(string.toLowerCase());
+        for (String string : characters) {
+            stringStack.push(string);
+            stringQueue.add(string);
         }
-
-        if(stringStack.pop().equals(stringQueue.remove())){
-            System.out.println("đó là chuỗi Palindrome");
-        }else {
-            System.out.println("đó khong là chuỗi Palindrome!");
+        boolean check = true;
+        for (int i = 0; i < stringStack.size(); i++) {
+            if (!stringStack.pop().equals(stringQueue.remove())) {
+                check = false;
+                break;
+            }
+        }
+        if(check == true){
+            System.out.println("la chuoi Palindrome.");
+        } else {
+            System.out.println("kh phai.");
         }
 
     }
