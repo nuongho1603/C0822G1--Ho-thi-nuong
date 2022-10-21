@@ -2,17 +2,15 @@ package s12.exercise;
 
 import com.sun.corba.se.spi.activation.LocatorPackage.ServerLocationPerORB;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Scanner;
+import java.util.*;
 
 public class ProductManager extends Product {
     Scanner scanner = new Scanner(System.in);
     static ArrayList<Product> productArrayList = new ArrayList<>();
-    Product products1 = new Product(1, "Sach", 16000);
+    Product products1 = new Product(1, "Sach", 19000);
     Product products2 = new Product(2, " But", 16000);
     Product products3 = new Product(3, "Vo", 55000);
-  //  private Product Collection;
+    //  private Product Collection;
 
     {
         productArrayList.add(products1);
@@ -22,8 +20,9 @@ public class ProductManager extends Product {
 
 
     public void display() {
-
-        System.out.println(productArrayList);
+        for (Product product : productArrayList) {
+            System.out.println(product.toString());
+        }
     }
 
     public void add() {
@@ -33,7 +32,7 @@ public class ProductManager extends Product {
         System.out.print("Moi ban nhap san pham: ");
         product.setNameProduct(scanner.nextLine());
         System.out.print("Moi ban nhap gia san pham: ");
-        product.setPrice(Integer.parseInt(scanner.nextLine()));
+        product.setPrice(Double.parseDouble(scanner.nextLine()));
 
         productArrayList.add(product);
         display();
@@ -60,12 +59,35 @@ public class ProductManager extends Product {
                 System.out.print("Moi ban nhap lai ten san pham: ");
                 item.setNameProduct(scanner.nextLine());
                 System.out.print("Moi ban nhap lai gia");
-                item.setPrice(Integer.parseInt(scanner.nextLine()));
+                item.setPrice(Double.parseDouble(scanner.nextLine()));
                 display();
             }
         }
     }
 
-//    public void sortPrice() {
-//    }
+    public void sort() {
+
+//          Collections.sort(productArrayList,new Comparato());
+        Collections.sort(productArrayList, new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                return (int) (o1.getPrice() - o2.getPrice());
+            }
+        });
+        for (Product product : productArrayList) {
+            System.out.println(product.toString());
+        }
+//        Collections.sort(productArrayList, new Comparator<Product>() {
+//            @Override
+//            public int compare(Product o1, Product o2) {
+//                return -(int) (o1.getPrice() - o2.getPrice());
+//            }
+//        });
+//        for (Product product : productArrayList) {
+//            System.out.println(product.toString());
+//        }
+   }
+
 }
+
+

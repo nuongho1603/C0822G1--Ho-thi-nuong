@@ -31,7 +31,10 @@ public class TestProduct {
                     productManager.deleteProduct();
                     break;
                 case 5:
+                    productManager.sort();
                     break;
+                case 7:
+
                 case 6:
                     System.exit(1);
                     break;

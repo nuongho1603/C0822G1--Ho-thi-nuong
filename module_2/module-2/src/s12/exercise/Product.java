@@ -1,9 +1,9 @@
 package s12.exercise;
 
-public class Product implements Comparable {
+public class Product implements Comparable<Product> {
     private int id;
     private String nameProduct;
-    private int price;
+    private double price;
 
     public Product() {
     }
@@ -30,11 +30,11 @@ public class Product implements Comparable {
         this.nameProduct = nameProduct;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -48,10 +48,9 @@ public class Product implements Comparable {
     }
 
 
-
-//    @Override
-//    public int compareTo(Product o) {
-//       return this.getPrice();
-//    }
+    @Override
+    public int compareTo(Product o) {
+        return (int) (this.price-(int)o.getPrice());
+    }
 }
 
