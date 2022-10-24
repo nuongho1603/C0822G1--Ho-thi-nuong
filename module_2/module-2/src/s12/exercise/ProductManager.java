@@ -10,7 +10,6 @@ public class ProductManager extends Product {
     Product products1 = new Product(1, "Sach", 19000);
     Product products2 = new Product(2, " But", 16000);
     Product products3 = new Product(3, "Vo", 55000);
-    //  private Product Collection;
 
     {
         productArrayList.add(products1);
