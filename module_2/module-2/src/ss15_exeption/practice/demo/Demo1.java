@@ -1,4 +1,4 @@
-package ss15_exeption.demo.practice;
+package ss15_exeption.practice.demo;
 
 import java.util.Scanner;
 
