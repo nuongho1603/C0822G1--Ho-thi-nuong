@@ -38,7 +38,8 @@ public class ReadFileExample {
     public static void main(String[] args) {
         System.out.println("link: ");
 //        Scanner scanner = new Scanner(System.in);
-        String path = "D:\codegym\C0822G1--Ho-thi-nuong\module_2\module-2\src\ss16\practice";
+//        String path = scanner.nextLine();
+        String path = "D:\\codegym\\C0822G1--Ho-thi-nuong\\module_2\\module-2\\src\\ss16\\practice\\file";
 
         ReadFileExample readFileExample = new ReadFileExample();
         readFileExample.readFileText(path);
