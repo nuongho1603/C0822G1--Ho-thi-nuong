@@ -6,6 +6,7 @@ public class FuramaController {
     public void displayMainMenu() {
         Scanner scanner = new Scanner(System.in);
         EmployeeManagementController employeeManagementController = new EmployeeManagementController();
+        CustomerManagementController customerManagementController = new CustomerManagementController();
         int choice;
         do {
             System.out.println("1.\tEmployee Management\n" +
@@ -22,6 +23,7 @@ public class FuramaController {
                     employeeManagementController.menuEmployee();
                     break;
                 case 2:
+                    customerManagementController.menuCustomer();
                     break;
                 case 3:
                     break;

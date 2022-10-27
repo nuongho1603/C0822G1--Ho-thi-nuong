@@ -4,6 +4,7 @@ import FuramaResorts.Models.Employee;
 import FuramaResorts.Service.IEmployeeManagementService;
 import weekend_learning.interface_demo.Em;
 
+import javax.swing.*;
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,6 +13,7 @@ public class EmployeeManagementIpml implements IEmployeeManagementService {
 
     Scanner scanner = new Scanner(System.in);
     ArrayList<Employee> employeeArrayList = new ArrayList<>();
+
 
     @Override
     public void display() {
@@ -83,20 +85,63 @@ public class EmployeeManagementIpml implements IEmployeeManagementService {
 
     @Override
     public void edit() {
-//        int id = Integer.parseInt(scanner.nextLine());
-//int index =
+        int id = Integer.parseInt(scanner.nextLine());
+        int index = search(id);
+        if(index != -1){
+            do {
+                Employee employee = new Employee();
+                int choice;
+                System.out.println("1.Sửa tên" +
+                        "2.Sửa ngày tháng năm sinh." +
+                        "3.sửa giới tính." +
+                        "4.sửa CMND" +
+                        "5.SỬA SDT nhân viên." +
+                        "6.sửa email.." +
+                        "7.sửa mã nv" +
+                        "8.sửa trình độ" +
+                        "9.Sửa vị trí." +
+                        "10.Sửa lương của nv." +
+                        "11.Quay lai. ");
 
-        int choice;
-        System.out.println("1.Sửa tên" +
-                "2.Sửa ngày tháng năm sinh." +
-                "3.sửa giới tính." +
-                "4.sửa CMND" +
-                "5.SỬA SDT nhân viên." +
-                "6.sửa email.." +
-                "7.sửa mã nv" +
-                "8.sửa trình độ" +
-                "9.Sửa vị trí." +
-                "10.Sửa lương của nv. ");
+                System.out.print("enter choice: ");
+                choice=Integer.parseInt(scanner.nextLine());
+
+                switch (choice){
+                    case 1:
+                        System.out.println("Moi ban nhap lai ten: ");
+//                        String hoTen = scanner.nextLine();
+                        employee.setHoTen(scanner.nextLine());
+                        System.out.println("Da sua ten than cong.");
+
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                    case 7:
+                        break;
+                    case 8:
+                        break;
+                    case 9:
+                        break;
+                    case 10:
+                        break;
+                    case 11:
+                       return;
+
+                }
+            } while (true);
+
+
+        }
+
+
     }
 
 

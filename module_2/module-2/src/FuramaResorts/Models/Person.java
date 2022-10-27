@@ -1,10 +1,8 @@
 package FuramaResorts.Models;
 
-import org.omg.CORBA.PRIVATE_MEMBER;
-
 public abstract class Person {
   private String hoTen;
-        private  String ngaySinh;
+        private  String ngayThangNamSinh;
         private String gioiTinh;
         private int CMND;
         private int soDienThoai;
@@ -13,9 +11,9 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(String hoTen, String ngaySinh, String gioiTinh, int CMND, int soDienThoai, String email) {
+    public Person(String hoTen, String ngayThangNamSinh, String gioiTinh, int CMND, int soDienThoai, String email) {
         this.hoTen = hoTen;
-        this.ngaySinh = ngaySinh;
+        this.ngayThangNamSinh = ngayThangNamSinh;
         this.gioiTinh = gioiTinh;
         this.CMND = CMND;
         this.soDienThoai = soDienThoai;
@@ -30,12 +28,12 @@ public abstract class Person {
         this.hoTen = hoTen;
     }
 
-    public String getNgaySinh() {
-        return ngaySinh;
+    public String getNgayThangNamSinh() {
+        return ngayThangNamSinh;
     }
 
-    public void setNgaySinh(String ngaySinh) {
-        this.ngaySinh = ngaySinh;
+    public void setNgayThangNamSinh(String ngayThangNamSinh) {
+        this.ngayThangNamSinh = ngayThangNamSinh;
     }
 
     public String getGioiTinh() {
@@ -73,7 +71,7 @@ public abstract class Person {
     @Override
     public String toString() {
         return "hoTen='" + hoTen + '\'' +
-                ", ngaySinh='" + ngaySinh + '\'' +
+                ", ngaySinh='" + ngayThangNamSinh + '\'' +
                 ", gioiTinh='" + gioiTinh + '\'' +
                 ", CMND=" + CMND +
                 ", soDienThoai=" + soDienThoai +

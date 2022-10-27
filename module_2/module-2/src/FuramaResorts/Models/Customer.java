@@ -14,6 +14,13 @@ public class Customer extends Person {
         this.diaChi = diaChi;
     }
 
+    public Customer(String hoTen, String ngayThangNamSinh, String gioiTinh, int CMND, int soDienThoai, String email, int maKhachHang, String loaiKhach, String diaChi) {
+        super(hoTen, ngayThangNamSinh, gioiTinh, CMND, soDienThoai, email);
+        this.maKhachHang = maKhachHang;
+        this.loaiKhach = loaiKhach;
+        this.diaChi = diaChi;
+    }
+
     public int getMaKhachHang() {
         return maKhachHang;
     }
@@ -40,7 +47,7 @@ public class Customer extends Person {
 
     @Override
     public String toString() {
-        return "Customer{" +super.toString()+
+        return "Customer{" + super.toString()+
                 "maKhachHang=" + maKhachHang +
                 ", loaiKhach='" + loaiKhach + '\'' +
                 ", diaChi='" + diaChi + '\'' +
