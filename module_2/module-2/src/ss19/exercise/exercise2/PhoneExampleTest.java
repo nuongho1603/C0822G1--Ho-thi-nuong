@@ -1,4 +1,6 @@
-package ss19.exercise;
+package ss19.exercise.exercise2;
+
+import ss19.exercise.exercise2.PhoneExample;
 
 import java.util.Scanner;
 

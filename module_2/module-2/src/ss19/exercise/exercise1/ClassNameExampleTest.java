@@ -1,4 +1,6 @@
-package ss19.exercise;
+package ss19.exercise.exercise1;
+
+import ss19.exercise.exercise1.ClassNameExample;
 
 public class ClassNameExampleTest {
     public static ClassNameExample classNameExample;

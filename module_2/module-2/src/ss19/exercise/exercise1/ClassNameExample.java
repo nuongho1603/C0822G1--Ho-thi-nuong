@@ -1,4 +1,4 @@
-package ss19.exercise;
+package ss19.exercise.exercise1;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
