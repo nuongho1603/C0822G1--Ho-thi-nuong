@@ -1,5 +1,5 @@
-create database furama;
-use furama;
+create database furama_create_table;
+use furama_create_table;
 -- tạo bảng vi trí.
 create table vi_tri(
   ma_vi_tri int primary key, 
