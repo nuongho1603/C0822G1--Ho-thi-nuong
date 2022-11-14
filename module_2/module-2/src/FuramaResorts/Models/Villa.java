@@ -2,13 +2,18 @@ package FuramaResorts.Models;
 
 public class Villa extends Facility {
     private String tieuChuanPhong;
-    private Double dienTichHoBoi;
+    private double dienTichHoBoi;
     private int soTang;
 
     public Villa() {
     }
 
-    public Villa(String tenDichVu, Double dienTichSuDung, int chiPhiThue, int soLuongToiDa, String kieuThue, String tieuChuanPhong, Double dienTichHoBoi, int soTang) {
+    @Override
+    public String showInfo() {
+        return null;
+    }
+
+    public Villa(String tenDichVu, double dienTichSuDung, int chiPhiThue, int soLuongToiDa, String kieuThue, String tieuChuanPhong, double dienTichHoBoi, int soTang) {
         super(tenDichVu, dienTichSuDung, chiPhiThue, soLuongToiDa, kieuThue);
         this.tieuChuanPhong = tieuChuanPhong;
         this.dienTichHoBoi = dienTichHoBoi;
@@ -23,11 +28,11 @@ public class Villa extends Facility {
         this.tieuChuanPhong = tieuChuanPhong;
     }
 
-    public Double getDienTichHoBoi() {
+    public double getDienTichHoBoi() {
         return dienTichHoBoi;
     }
 
-    public void setDienTichHoBoi(Double dienTichHoBoi) {
+    public void setDienTichHoBoi(double dienTichHoBoi) {
         this.dienTichHoBoi = dienTichHoBoi;
     }
 

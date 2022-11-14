@@ -2,7 +2,7 @@ package FuramaResorts.Models;
 
 public abstract class Facility {
     private String tenDichVu;
-    private Double dienTichSuDung;
+    private double dienTichSuDung;
     private int chiPhiThue;
     private int soLuongToiDa;
     private String kieuThue;
@@ -10,7 +10,9 @@ public abstract class Facility {
     public Facility() {
     }
 
-    public Facility(String tenDichVu, Double dienTichSuDung, int chiPhiThue, int soLuongToiDa, String kieuThue) {
+    public abstract String showInfo();
+
+    public Facility(String tenDichVu, double dienTichSuDung, int chiPhiThue, int soLuongToiDa, String kieuThue) {
         this.tenDichVu = tenDichVu;
         this.dienTichSuDung = dienTichSuDung;
         this.chiPhiThue = chiPhiThue;
@@ -26,11 +28,11 @@ public abstract class Facility {
         this.tenDichVu = tenDichVu;
     }
 
-    public Double getDienTichSuDung() {
+    public double getDienTichSuDung() {
         return dienTichSuDung;
     }
 
-    public void setDienTichSuDung(Double dienTichSuDung) {
+    public void setDienTichSuDung(double dienTichSuDung) {
         this.dienTichSuDung = dienTichSuDung;
     }
 

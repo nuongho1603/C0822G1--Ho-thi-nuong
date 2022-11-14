@@ -6,7 +6,12 @@ public class Room extends Facility{
     public Room() {
     }
 
-    public Room(String tenDichVu, Double dienTichSuDung, int chiPhiThue, int soLuongToiDa, String kieuThue, String dichVuFreeDiKem) {
+    @Override
+    public String showInfo() {
+        return null;
+    }
+
+    public Room(String tenDichVu, double dienTichSuDung, int chiPhiThue, int soLuongToiDa, String kieuThue, String dichVuFreeDiKem) {
         super(tenDichVu, dienTichSuDung, chiPhiThue, soLuongToiDa, kieuThue);
         this.dichVuFreeDiKem = dichVuFreeDiKem;
     }

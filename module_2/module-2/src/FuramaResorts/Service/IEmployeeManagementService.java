@@ -7,5 +7,5 @@ public interface IEmployeeManagementService {
 
     void delete();
 
-    void edit();
+    // void edit();
 }

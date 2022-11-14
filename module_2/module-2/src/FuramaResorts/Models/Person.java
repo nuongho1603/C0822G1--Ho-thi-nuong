@@ -1,12 +1,12 @@
 package FuramaResorts.Models;
 
 public abstract class Person {
-  private String hoTen;
-        private  String ngayThangNamSinh;
-        private String gioiTinh;
-        private int CMND;
-        private int soDienThoai;
-        private String email;
+    private String hoTen;
+    private String ngayThangNamSinh;
+    private String gioiTinh;
+    private int CMND;
+    private int soDienThoai;
+    private String email;
 
     public Person() {
     }

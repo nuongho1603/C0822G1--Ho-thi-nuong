@@ -1,6 +1,5 @@
 package FuramaResorts.Views;
 
-import FuramaResorts.Controllers.EmployeeManagementController;
 import FuramaResorts.Controllers.FuramaController;
 
 public class view {
@@ -8,6 +7,4 @@ public class view {
         FuramaController furamaController= new FuramaController();
         furamaController.displayMainMenu();
     }
-
-
 }

@@ -7,6 +7,7 @@ public class FuramaController {
         Scanner scanner = new Scanner(System.in);
         EmployeeManagementController employeeManagementController = new EmployeeManagementController();
         CustomerManagementController customerManagementController = new CustomerManagementController();
+        FacilityManagementController facilityManagementController = new FacilityManagementController();
         int choice;
         do {
             System.out.println("1.\tEmployee Management\n" +
@@ -20,12 +21,13 @@ public class FuramaController {
 
             switch (choice){
                 case 1:
-                    employeeManagementController.menuEmployee();
+                    employeeManagementController. menuEmployee();
                     break;
                 case 2:
                     customerManagementController.menuCustomer();
                     break;
                 case 3:
+                    facilityManagementController.menuFacility();
                     break;
                 case 4:
                     break;

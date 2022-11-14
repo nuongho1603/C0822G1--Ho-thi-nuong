@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class FacilityManagementController {
 
     Scanner scanner = new Scanner(System.in);
-    LinkedHashMap<Facility, Integer> linkedHashMap = new LinkedHashMap<>();
+
     IFacilityManagementService iFacilityManagementService = new FacilityManagementIpml();
 
     public void menuFacility() {
@@ -31,6 +31,7 @@ public class FacilityManagementController {
                     add();
                     break;
                 case 3:
+                    iFacilityManagementService.displayMaintenance();
                     break;
                 case 4:
                     return;
