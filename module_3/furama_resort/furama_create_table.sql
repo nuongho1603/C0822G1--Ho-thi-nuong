@@ -41,16 +41,17 @@ create table loai_khach(
 -- tạo bảng khách hàng. 
 create table khach_hang(
   ma_khach_hang int primary key, 
-  ma_loai_khach int, 
-  foreign key(ma_loai_khach) references loai_khach(ma_loai_khach), 
   ho_ten varchar(45), 
   ngay_sinh date, 
   gioi_tinh bit(1), 
   so_cmnd varchar (45), 
   so_dien_thoai varchar (45), 
   email varchar(45), 
-  dia_chi varchar(45)
+  dia_chi varchar(45),
+  ma_loai_khach int, 
+  foreign key(ma_loai_khach) references loai_khach(ma_loai_khach)
 );
+
 -- tạo bảng hợp đồng .
 create table hop_dong(
   ma_hop_dong int primary key, 
@@ -67,8 +68,9 @@ create table hop_dong(
 -- tạo bảng loại dich vu .
 create table loai_dich_vu(
   ma_loai_dich_vu int primary key, 
-  ten_loai_khach_hang varchar(45)
+  ten_loai_dich_vu varchar(45)
 );
+
 -- tạo bảng dịch vụ.
 create table dich_vu(
   ma_dich_vu int primary key, 
@@ -76,16 +78,16 @@ create table dich_vu(
   dien_tich int, 
   chi_phi_thue double, 
   so_nguoi_toi_da int, 
-  ma_kieu_thue int, 
-  foreign key(ma_kieu_thue) references kieu_thue(ma_kieu_thue), 
-  ma_loai_dich_vu int, 
-  foreign key(ma_loai_dich_vu) references loai_dich_vu(ma_loai_dich_vu), 
-  tieu_chuan_phong varchar(45), 
+  tieu_chuan_phong varchar(45),
   mo_ta_tien_nghi_khac varchar(45), 
   dien_tich_ho_boi double, 
   so_tang int, 
-  dich_vu_mien_phi text
-);
+  dich_vu_mien_phi_di_kem text,
+  ma_kieu_thue int, 
+  foreign key(ma_kieu_thue) references kieu_thue(ma_kieu_thue), 
+  ma_loai_dich_vu int, 
+  foreign key(ma_loai_dich_vu) references loai_dich_vu(ma_loai_dich_vu)
+ );
 -- tao bang kieu thue.
 create table kieu_thue(
   ma_kieu_thue int primary key, 
@@ -94,6 +96,7 @@ create table kieu_thue(
 -- tao bảng hợp đồng chi tiết. 
 create table hop_dong_chi_tiet(
   ma_hop_dong_chi_tiet int primary key, 
+  so_luong int,
   ma_hop_dong int, 
   foreign key(ma_hop_dong) references hop_dong(ma_hop_dong), 
   ma_dich_vu_di_kem int, 
@@ -107,3 +110,4 @@ create table dich_vu_di_kem(
   don_vi varchar(10), 
   trang_thai varchar(45)
 );
+drop table hop_dong_chi_tiet;
