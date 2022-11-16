@@ -11,7 +11,7 @@ create table customer(
 create table `order`(
   o_id int not null auto_increment primary key, 
   c_id int, 
-  foreign key(c_id) references customer(c_id), 
+  foreign key(cID) references customer(cID), 
   o_date datetime, 
   o_total_price int
 );
@@ -32,3 +32,8 @@ create table order_detail(
   foreign key(p_id) references product(p_id), 
   od_qty int
 );
+ 
+insert into customer(c_name,c_age)
+values( "Minh Quan",10),
+( "Ngoc Oanh",20),
+( "Hong Ha",50);
