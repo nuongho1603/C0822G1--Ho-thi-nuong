@@ -1,11 +1,12 @@
-create database quan_li_ban_hang;
-use quan_li_ban_hang;
+create database sales_manager;
+use sales_manager;
 -- tạo bảng lưu danh sách khách hàng.
 create table customer(
   cID int primary key, 
   cName varchar(45), 
   cAge int
 );
+
 -- tạo bảng order.
 create table `order`(
   oID int primary key, 
@@ -14,12 +15,14 @@ create table `order`(
   oDate date, 
   oTotalPrice varchar(45)
 );
+
 -- tạo bảng product(sản p). 
 create table product(
   pID int primary key, 
   pName varchar(40), 
   pPrice varchar(45)
 );
+
 -- tạo bảng orderDetail(chi tiết đặt hàng).
 create table order_detail(
   oID int, 

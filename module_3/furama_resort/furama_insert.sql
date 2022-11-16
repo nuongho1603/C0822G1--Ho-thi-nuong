@@ -26,10 +26,10 @@ insert into vi_tri (ma_vi_tri, ten_vi_tri) values
 	('8', 'Nguyễn Hà Đông', '1989-09-03', '234414123', '9000000', '0642123111', 'donghanguyen@gmail.com', '111 Hùng Vương, Hà Nội', '2', '4', '4'),
 	('9', 'Tòng Hoang', '1982-09-03', '256781231', '6000000', '0245144444', 'hoangtong@gmail.com', '213 Hàm Nghi, Đà Nẵng', '2', '4', '4'),
 	('10', 'Nguyễn Công Đạo', '1994-01-08', '755434343', '8000000', '0988767111', 'nguyencongdao12@gmail.com', '6 Hoà Khánh, Đồng Nai', '2', '3', '2');
-    
-   insert into loai_khach(ma_loai_khach, ten_loai_khach) values
+drop table nhan_vien;
+    insert into loai_khach(ma_loai_khach, ten_loai_khach) values
 	('1', 'Diamond'),
-	('2', 'Platinium'),
+	('2', 'Platinium'), 
 	('3', 'Gold'),
 	('4', 'Silver'),
 	('5', 'Member');
@@ -45,6 +45,7 @@ insert into vi_tri (ma_vi_tri, ten_vi_tri) values
 	('8', 'Nguyễn Thị Hào', '1999-04-08', 0, '965656433', '0763212345', 'haohao99@gmail.com', '55 Nguyễn Văn Linh, Kon Tum', '3'),
 	('9', 'Trần Đại Danh', '1994-07-01', 1, '432341235', '0643343433', 'danhhai99@gmail.com', '24 Lý Thường Kiệt, Quảng Ngãi', '1'),
 	('10', 'Nguyễn Tâm Đắc', '1989-07-01', 1, '344343432', '0987654321', 'dactam@gmail.com', '22 Ngô Quyền, Đà Nẵng', '2');
+    select * from khach_hang;
     
     insert into kieu_thue(ma_kieu_thue, ten_kieu_thue) values
 	('1', 'year'),
