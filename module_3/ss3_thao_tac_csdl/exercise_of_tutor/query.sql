@@ -1,4 +1,4 @@
-use quan_li;
+use managers;
 insert into class values 
 (1,"c1121g1"),
 (2,"c1221g1"),
@@ -18,42 +18,69 @@ insert into student(id,`name`,gender,birthday,`point`,username,class_id) values
 (10,"le minh vu",1,12/12/1981,8,"culm",1),
 (15,"nguyen van a",1,12/12/1981,7,null,null),
 (16,"tran van b",1,12/12/1981,7,null,null);
+
+insert into instructor(name,birthday,salary)
+values ("Tran Van Chanh","1985-3-2",100),
+ ("Tran Minh Chien","1985-3-2",100),
+("Vu Thanh Tien","1984-3-2",100),
+ ("Tran Van Nam","1989-12-12",100);
+
+insert into instructor_class(instructor_id,class_id)
+values (1,1),
+(1,2),
+(1,3),
+(2,1),
+(2,2),
+(2,3);
+
 select*from student;
 drop table student;
+
 -- 1.Lấy ra thông tin các học viên, và cho biết các học viên đang theo học lớp nào.
 select*
 from student
 join class on student.class_id = class_id;
+
 -- 2. Lấy ra thông tin các học viên, và cho biết các học viên đang theo học lớp nào và cả các bạn đã đăng ký nhưng chưa có lớp học.
 select * 
 from student
 where class_id = null;
+
 -- 4.Lấy thông tin của các học viên tên “Hai” và 'Huynh’.
 select * 
 from student 
 where `name` like "%hai%" or `name` like "%huynh%";
+
 -- 5. Lấy ra học viên có điểm lớn hơn 5.
 select *
 from student
 where point > 5;
+
 -- 6. Lấy ra học viên có họ là “nguyen”.
 select *
 from student 
 where `name` like "%nguyen%";
+
 -- 7.Thông kế số lượng học sinh theo từng loại điểm.
 select count(+1)
 from student
 where point;
+
 -- 8 .Thông kế số lượng học sinh theo điểm và điểm phải lớn hơn 5.
 select count(+1)
 from student
 where point>5;
+
 -- 9.Thông kế số lượng học sinh theo điểm lớn hơn 5 và chỉ hiện thị với số lượng>=2
 select `point`, count(`point`) 
 from student 
 where `point` >5 group by `point` 
 having count(`point`) >=2;
+
 -- 10. Lấy ra danh sách học viên của lớp c1121g1 và sắp xếp tên học viên theo alphabet.
 select *
 from student join class on student.class_id= class_id
 order by student.name; 
+
+
+
