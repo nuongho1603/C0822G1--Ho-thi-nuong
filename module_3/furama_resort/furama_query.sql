@@ -185,6 +185,6 @@ delete nv.ma_nhan_vien
 -- thông tin hiển thị bao gồm id (ma_nhan_vien, ma_khach_hang), ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.
 select nv.ma_nhan_vien,kh.ma_khach_hang,nv.ho_ten,kh.ho_ten,nv.email,kh.email,nv.so_dien_thoai,kh.so_dien_thoai,nv.ngay_sinh,kh.ngay_sinh,nv.dia_chi,kh.dia_chi
 from nhan_vien as nv
-left join hop_dong as hd on hd.ma_nhan_vien = nv.ma_nhan_vien
-left join khach_hang as kh on hd.ma_khach_hang = kh.ma_khach_hang
+ join hop_dong as hd on hd.ma_nhan_vien = nv.ma_nhan_vien
+ join khach_hang as kh on hd.ma_khach_hang = kh.ma_khach_hang
 ;
