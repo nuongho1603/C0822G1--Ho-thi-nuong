@@ -12,8 +12,8 @@ and length(nv.ho_ten) <= 15;
 -- 3.Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.
 select * 
 from khach_hang as kh
-where dia_chi like "%Đà Nẵng" 
-or dia_chi like "%Quảng Trị"
+where (dia_chi like "%Đà Nẵng" 
+or dia_chi like "%Quảng Trị")
 and datediff (curdate(), ngay_sinh)/365 between 18 and 50; 
 
 -- 4.Đếm xem tương ứng với mỗi khách hàng đã từng đặt phòng bao nhiêu lần.
@@ -80,6 +80,10 @@ from khach_hang kh;
 select ho_ten from khach_hang
 group by ho_ten;
 
+-- c3:
+select distinct ho_ten
+from khach_hang;
+
 
 -- 9.Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2021 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
 select month(hd.ngay_lam_hop_dong) as thang,count(hd.ma_hop_dong) as so_luong_khach_hang
@@ -87,8 +91,6 @@ from hop_dong as hd
 where year(hd.ngay_lam_hop_dong)=2021
 group by thang
 order by thang;
-
--- order by thang;
 
 -- 10.	Hiển thị thông tin tương ứng với từng hợp đồng thì đã sử dụng bao nhiêu dịch vụ đi kèm.
 -- Kết quả hiển thị bao gồm ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, so_luong_dich_vu_di_kem (được tính dựa trên việc sum so_luong ở dich_vu_di_kem).
@@ -98,8 +100,7 @@ select hd.ma_hop_dong,hd.ngay_lam_hop_dong,hd.ngay_ket_thuc,hd.tien_dat_coc, sum
  group by hd.ma_hop_dong;
  
  -- 11.	Hiển thị thông tin các dịch vụ đi kèm đã được sử dụng bởi những khách hàng có ten_loai_khach là “Diamond” và có dia_chi ở “Vinh” hoặc “Quảng Ngãi”.
-
- select dvdk.ma_dich_vu_di_kem,dvdk.ten_dich_vu_di_kem
+select dvdk.ma_dich_vu_di_kem,dvdk.ten_dich_vu_di_kem
  from dich_vu_di_kem as dvdk
  inner join hop_dong_chi_tiet as hdct on dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_kem
  inner join hop_dong as hd on hdct.ma_hop_dong = hd.ma_hop_dong
