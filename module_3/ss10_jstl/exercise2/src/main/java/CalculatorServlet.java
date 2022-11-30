@@ -27,12 +27,15 @@ public class CalculatorServlet extends HttpServlet {
                 result = first * second;
                 break;
             case "/":
-                if (second != 0) {
+                try {
                     result = first / second;
-                    break;
-                } else {
-                    throw new RuntimeException("Khong dc chia cho 0!");
+
+                } catch (ArithmeticException e) {
+                    request.setAttribute("result", "Error : 0");
+                    request.getRequestDispatcher("result.jsp").forward(request, response);
+                    return;
                 }
+                break;
         }
         request.setAttribute("first", first);
         request.setAttribute("second", second);
