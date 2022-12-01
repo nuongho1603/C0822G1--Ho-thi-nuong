@@ -32,9 +32,14 @@ public class ProductReponsitory implements IProductReponsitory {
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
+    public void delete(int id) {
+        for ( Product p: productList) {
+          if(p.getId() == id){
+              productList.remove(p.getId());
+          }
+        }
     }
+
 
     @Override
     public void update(int id, Product product) {

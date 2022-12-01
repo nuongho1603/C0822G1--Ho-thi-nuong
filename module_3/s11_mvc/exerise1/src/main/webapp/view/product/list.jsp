@@ -19,6 +19,7 @@
 <body>
 <h5>Display products</h5>
 <a href="/product?action=add"> Add </a>
+<a href="/product?action=delete"> Delete </a>
 <table class="table table-striped">
     <tr>
         <th>#</th>
@@ -26,6 +27,7 @@
         <th>Content</th>
         <th>Price</th>
         <th>Edit</th>
+
     </tr>
     <c:forEach var="product" items="${productList}" varStatus="status">
         <tr>

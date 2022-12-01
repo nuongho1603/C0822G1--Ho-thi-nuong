@@ -25,9 +25,10 @@ productReponsitory.add(product);
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
+    public void delete(int id) {
+        productReponsitory.delete(id);
     }
+
 
     @Override
     public void update(int id, Product product) {

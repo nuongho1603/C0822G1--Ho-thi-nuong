@@ -29,6 +29,7 @@ public class ProductServlet extends HttpServlet {
                 save(request, response);
                 break;
             case "delete":
+                delete(request,response);
                 break;
             case "search":
                 break;
@@ -37,6 +38,12 @@ public class ProductServlet extends HttpServlet {
                 break;
             default:
         }
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        productService.delete(id);
+        showListProduct(request, response);
     }
 
     private void edit(HttpServletRequest request, HttpServletResponse response) {
@@ -73,6 +80,7 @@ public class ProductServlet extends HttpServlet {
                 showFormAdd(request, response);
                 break;
             case "delete":
+                showFormDelete(request,response);
                 break;
             case "search":
                 break;
@@ -81,6 +89,16 @@ public class ProductServlet extends HttpServlet {
                 break;
             default:
                 showListProduct(request, response);
+        }
+    }
+
+    private void showFormDelete(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            request.getRequestDispatcher("view/product/delete.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
