@@ -42,6 +42,7 @@ public class ProductServlet extends HttpServlet {
 
     private void delete(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
+
         productService.delete(id);
         showListProduct(request, response);
     }
