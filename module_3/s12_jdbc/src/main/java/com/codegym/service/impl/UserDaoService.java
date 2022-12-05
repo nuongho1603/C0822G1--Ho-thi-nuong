@@ -11,8 +11,9 @@ import java.util.List;
 public class UserDaoService implements IUserDaoService {
   static  IUserDaoReponsitory userDaoReponsitory = new UserDaoReponsitory();
     @Override
-    public void insertUser(User user) throws SQLException {
+    public boolean insertUser(User user) throws SQLException {
         userDaoReponsitory.insertUser(user);
+        return false;
     }
 
     @Override
@@ -27,16 +28,21 @@ public class UserDaoService implements IUserDaoService {
 
     @Override
     public boolean deleteUser(int id) throws SQLException {
-        return false;
+        return userDaoReponsitory.deleteUser(id);
     }
 
     @Override
     public boolean updateUser(User user) throws SQLException {
-        return false;
+        return userDaoReponsitory.updateUser(user);
     }
 
     @Override
     public List<User> searchUser(String country) {
-        return null;
+        return userDaoReponsitory.searchUser(country);
     }
+
+//    @Override
+//    public boolean delete(int deleteId) {
+//        return false;
+//    }
 }

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface IUserDaoService {
-    void insertUser(User user) throws SQLException;
+    boolean insertUser(User user) throws SQLException;
 
     User selectUser(int id);
 
@@ -16,4 +16,5 @@ public interface IUserDaoService {
 
     boolean updateUser(User user) throws SQLException;
     List<User> searchUser(String country);
+
 }

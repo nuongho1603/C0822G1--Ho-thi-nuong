@@ -8,11 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
-  <head>
+<head>
     <title>$Title$</title>
-  </head>
-  <body>
-  <h5><a href="/users"> > Hãy nhấn vào đây đi nào! </a></h5>
+</head>
+<body>
+<h5><a href="/users"> > Hãy nhấn vào đây đi nào! </a></h5>
 
-  </body>
+</body>
 </html>
