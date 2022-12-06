@@ -13,7 +13,7 @@
     <h2>
         <a href="/users?action=create">Add New User</a>
     </h2>
-    <form action="/users?action=search">
+    <form action="/users?action=search" method="post">
         <input type="text" name="search">
         <button type="submit">Search</button>
     </form>
@@ -60,8 +60,8 @@
                 </div>
                 <form action="/users?action=delete" method="post">
                     <div class="modal-body">
-                        <input type="text" id="deleteId" name="deleteId">
-                        <span>bạn có muôns delete user </span><span id="deleteName"></span>
+                        <input type="text" id="deleteId" name="deleteId" hidden >
+                        <span>Bạn có muốn delete user </span><span id="deleteName"></span>?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -73,8 +73,8 @@
     </div>
 <script>
     function infoDelete(id, name) {
-        document.getElementById(deleteId).value= id;
-        document.getElementById(deleteName).innerText = name;
+        document.getElementById("deleteId").value= id;
+        document.getElementById("deleteName").innerText = name;
     }
 </script>
 </body>

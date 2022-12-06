@@ -43,6 +43,7 @@ public class UserServlet extends HttpServlet {
             throw new ServletException(ex);
         }
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -70,15 +71,14 @@ public class UserServlet extends HttpServlet {
     }
 
 
-
     private void searchUser(HttpServletRequest request, HttpServletResponse response) {
-        String country = request.getParameter("country");
-        request.setAttribute("country",country);
+        String country = request.getParameter("search");
+//        request.setAttribute("country", country);
         List<User> userList = userDaoService.searchUser(country);
         request.setAttribute("listUser", userList);
 
         try {
-            request.getRequestDispatcher("user/list.jsp").forward(request, response);
+            request.getRequestDispatcher("user/search.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -88,19 +88,17 @@ public class UserServlet extends HttpServlet {
     }
 
 
-
-    private void listUser(HttpServletRequest request, HttpServletResponse response)
-    {
+    private void listUser(HttpServletRequest request, HttpServletResponse response) {
         List<User> listUser = userDaoService.selectAllUsers();
         request.setAttribute("listUser", listUser);
-           try {
-               request.getRequestDispatcher("user/list.jsp").forward(request, response);
-           } catch (ServletException e) {
-               e.printStackTrace();
-           } catch (IOException e) {
-               e.printStackTrace();
-           }
-       }
+        try {
+            request.getRequestDispatcher("user/list.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response) {
         List<User> userList = userDaoService.selectAllUsers();
@@ -130,13 +128,13 @@ public class UserServlet extends HttpServlet {
         String country = request.getParameter("country");
 
         User newUser = new User(name, email, country);
-      boolean check =  userDaoService.insertUser(newUser);
-      String mess = "Add ok roi đó! ";
-      if(!check){
-          mess ="User ch được add!";
-      }
-      request.setAttribute("mess",mess);
-      showNewForm(request,response);
+        boolean check = userDaoService.insertUser(newUser);
+        String mess = "Add ok roi đó! ";
+        if (!check) {
+            mess = "User ch được add!";
+        }
+        request.setAttribute("mess", mess);
+        showNewForm(request, response);
 //     request.getRequestDispatcher("user/create.jsp").forward(request, response);
     }
 
@@ -149,9 +147,9 @@ public class UserServlet extends HttpServlet {
         User book = new User(id, name, email, country);
         try {
             userDaoService.updateUser(book);
-       RequestDispatcher requestDispatcher = request.getRequestDispatcher("user/edit.jsp");
-       request.setAttribute("mess","Update ok roi đó! ");
-       requestDispatcher.forward(request, response);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("user/edit.jsp");
+            request.setAttribute("mess", "Update ok roi đó! ");
+            requestDispatcher.forward(request, response);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ServletException e) {
@@ -164,7 +162,7 @@ public class UserServlet extends HttpServlet {
 
     private void deleteUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("deleteId"));
         userDaoService.deleteUser(id);
 
         List<User> listUser = userDaoService.selectAllUsers();
