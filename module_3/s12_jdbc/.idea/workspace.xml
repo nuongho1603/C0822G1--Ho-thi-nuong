@@ -27,11 +27,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbc63bb7-3014-4d2e-8d96-63a9cff38c25" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../caseStudy/src/main/java/controller/CustomerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../caseStudy/src/main/java/modal/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../caseStudy/src/main/java/modal/CustomerType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../caseStudy/src/main/java/reponsitory/BaseReponsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../caseStudy/src/main/java/reponsitory/ICustomerReponsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../caseStudy/src/main/java/reponsitory/ICustomerTypeReponsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../caseStudy/src/main/java/reponsitory/impl/CustomerReponsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../caseStudy/src/main/java/service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../caseStudy/src/main/java/service/impl/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../caseStudy/src/main/webapp/customer/addCustomer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../caseStudy/src/main/webapp/customer/displayCustomer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codegym/controller/UserServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/reponsitory/impl/UserDaoReponsitory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codegym/reponsitory/impl/UserDaoReponsitory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/user/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user/search.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +98,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../caseStudy" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -348,7 +356,16 @@
       <workItem from="1670227761432" duration="3615000" />
       <workItem from="1670233524470" duration="2045000" />
       <workItem from="1670239587819" duration="4200000" />
-      <workItem from="1670288816013" duration="5180000" />
+      <workItem from="1670288816013" duration="8932000" />
+      <workItem from="1670317156570" duration="2881000" />
+      <workItem from="1670376493825" duration="217000" />
+      <workItem from="1670376836660" duration="84000" />
+      <workItem from="1670379950171" duration="4641000" />
+      <workItem from="1670392662308" duration="1663000" />
+      <workItem from="1670397303949" duration="36000" />
+      <workItem from="1670400289013" duration="2647000" />
+      <workItem from="1670414344709" duration="1197000" />
+      <workItem from="1670462274572" duration="3599000" />
     </task>
     <servers />
   </component>
@@ -396,10 +413,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="499" y="47" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable/0.0.1536.816@0.0.1536.816" timestamp="1669956692383" />
-    <state x="548" y="149" key="FileChooserDialogImpl" timestamp="1669956589839">
+    <state x="548" y="149" key="FileChooserDialogImpl" timestamp="1670462392842">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="548" y="149" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1669956589839" />
+    <state x="548" y="149" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1670462392842" />
     <state width="1493" height="215" key="GridCell.Tab.0.bottom" timestamp="1670300593132">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -468,6 +485,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="277" y="53" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1670199360002" />
+    <state x="209" y="19" key="new project wizard" timestamp="1670376577208">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="209" y="19" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1670376577208" />
     <state x="431" y="137" width="672" height="678" key="search.everywhere.popup" timestamp="1670204270273">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
