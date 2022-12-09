@@ -118,7 +118,25 @@ public class CustomerReponsitory implements ICustomerReponsitory {
 
     @Override
     public boolean updateCustomer(Customer customer) {
-        return false;
+        boolean rowUpdate = false;
+        Connection connection = BaseReponsitory.getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement(UPDATE_CUSTOMER_SQL);
+            statement.setString(1,customer.getName());
+            statement.setString(2,customer.getBirthday());
+            statement.setInt(3,customer.getGender());
+            statement.setInt(4,customer.getIdCard());
+            statement.setInt(5,customer.getPhone());
+            statement.setString(6,customer.getEmail());
+            statement.setString(7,customer.getAddress());
+            statement.setInt(8,customer.getCustomerType().getId());
+            statement.setInt(9,customer.getId());
+            rowUpdate = statement.executeUpdate() >0;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return rowUpdate;
     }
 
     @Override

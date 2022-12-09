@@ -76,7 +76,7 @@
             <tr>
                 <th>User name:</th>
                 <td>
-                    <input type="text" name="name" id="name" size="35"/>
+                    <input type="text" required name="name" id="name" size="35"/>
                 </td>
             </tr>
             <tr>
@@ -88,22 +88,22 @@
             <tr>
                 <th>Gender:</th>
                 <td>
-<%--                    <input type="radio" name="country"  > Male--%>
-<%--                    <input type="radio" name="country" > female--%>
+<%--                    <input type="radio" name="gender"  > 0--%>
+<%--                    <input type="radio" name="gender" > 1--%>
 
-                    <input type="text" name="gender" id="gender" size="20">
+                <input type="text" required name="gender" id="gender" size="20">
                 </td>
             </tr>
             <tr>
                 <th>ID Card:</th>
                 <td>
-                    <input type="text" name="idCard" id="idCard" size="25"/>
+                    <input type="text" required name="idCard" id="idCard" size="25"/>
                 </td>
             </tr>
             <tr>
                 <th>Phone:</th>
                 <td>
-                    <input type="text" name="phone" id="phone" size="15"/>
+                    <input type="text" required name="phone" id="phone" size="15"/>
                 </td>
             </tr>
             <tr>

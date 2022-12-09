@@ -18,6 +18,7 @@ import java.util.List;
 public class FacilityReponsitory implements IFacilityReponsitory {
     private static final String SELECT_ALL_FACILITY = "select f.*,ft.name as facility_type_name,rt.name as rent_type_name from facility as f left join rent_type as rt on f.rent_type_id = rt.id\n" +
             " join facility_type as ft on f.facility_type_id = ft.id;";
+    private static final String DELETE_FACILITY = "delete from facility where id=?;";
 
     @Override
     public boolean insertFacility(Facility facility) {
@@ -26,7 +27,17 @@ public class FacilityReponsitory implements IFacilityReponsitory {
 
     @Override
     public boolean deleteFacility(int id) {
-        return false;
+        Connection connection = BaseReponsitory.getConnection();
+        boolean rowDelte = false;
+        try {
+            PreparedStatement statement = connection.prepareStatement(DELETE_FACILITY);
+            statement.setInt(1,id);
+            rowDelte = statement.executeUpdate()>0;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return rowDelte;
     }
 
     @Override
@@ -47,13 +58,16 @@ public class FacilityReponsitory implements IFacilityReponsitory {
                 double poolArea = rs.getDouble("pool_area");
                 int numberOfFloor = rs.getInt("number_of_floors");
                 String facilityFree = rs.getString("facility_free");
+
                 int facilityId = rs.getInt("id");
                 String facilityName = rs.getString("name");
+
                 int rentTypeId = rs.getInt("id");
                 String rentTypeName = rs.getString("name");
-                FacilityTypeID facilityType = new FacilityTypeID(facilityId, facilityName);
-                RentType rentType = new RentType(rentTypeId, rentTypeName);
-                Facility facility = new Facility(id, name, area, cost, maxPeople, standardRoom, descriptionOtherConvenience, poolArea, numberOfFloor, facilityFree,facilityType, rentType);
+
+                FacilityTypeID facilityTypeId = new FacilityTypeID(facilityId, facilityName);
+                RentType rentType = new RentType(rentTypeId,rentTypeName);
+                Facility facility = new Facility(id, name, area, cost, maxPeople, standardRoom, descriptionOtherConvenience, poolArea, numberOfFloor, facilityFree,facilityTypeId, rentType);
                 facilityList.add(facility);
             }
         } catch (SQLException throwables) {

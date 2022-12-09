@@ -74,7 +74,7 @@
         </form>
     </div>
 
-    <div style="color: darkred;"> <b> ${mess} </b> </div>
+    <div style="color: darkred;"><b> ${mess} </b></div>
     <table border="1" cellpadding="10">
         <tr>
             <th>#</th>
@@ -102,12 +102,14 @@
                 <td>${customer.address}</td>
                 <td>${customer.customerType.name}</td>
                 <td>
-                    <button type="submit" class="btn btn-info" style="color:darkred "> edit</button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#editModal">
+                        Edit
+                    </button>
                 </td>
                 <td>
                     <button onclick="infoDelete('${customer.id}','${customer.name}')" type="button"
                             class="btn btn-danger"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            data-bs-toggle="modal" data-bs-target="#deleteModal">
                         Delete
                     </button>
                 </td>
@@ -115,12 +117,13 @@
         </c:forEach>
     </table>
 </div>
-<%--modamodal--%>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<%--deletemodal--%>
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal delete</h5>
+                <h5 class="modal-title" id="deleteModal1">Modal delete</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="/customer?action=delete" method="post">
@@ -136,10 +139,112 @@
         </div>
     </div>
 </div>
+
 <script>
     function infoDelete(id, name) {
         document.getElementById("deleteId").value = id;
         document.getElementById("deleteName").innerText = name;
+    }
+</script>
+
+<%--editmodal--%>
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModal1">Modal edit</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/customer?action=edit" method="post">
+                <div class="modal-body">
+
+                    <div align="center">
+                        <form method="post">
+                            <table border="1" cellpadding="5">
+                                <caption>
+                                    <h5><a href="/customer"> <b>New customer </b></a></h5>
+                                </caption>
+                                <tr>
+                                    <th>User name:</th>
+                                    <td>
+                                        <input type="text" required name="name" id="name1" size="35"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Birthday:</th>
+                                    <td>
+                                        <input type="date" name="birthday" id="birthday1" size="15"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Gender:</th>
+                                    <td>
+                                        <%--                    <input type="radio" name="gender"  > 0--%>
+                                        <%--                    <input type="radio" name="gender" > 1--%>
+
+                                        <input type="text" required name="gender" id="gender1" size="20">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>ID Card:</th>
+                                    <td>
+                                        <input type="text" required name="idCard" id="idCard1" size="25"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Phone:</th>
+                                    <td>
+                                        <input type="text" required name="phone" id="phone1" size="15"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Customer Email:</th>
+                                    <td>
+                                        <input type="text" name="email" id="email1" size="45"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Address:</th>
+                                    <td>
+                                        <input type="text" name="address" id="address1" size="15"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Customer type id:</th>
+                                    <td>
+                                        <input type="text" name="customerTypeId" id="customerTypeId1" size="15"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <input type="submit" value="Save"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getCustomerInfo(id, name, birthday, gender, idCard, email, address, customerTypeId) {
+        document.getElementById(id1).value = id;
+        document.getElementById(name1).value = name;
+        document.getElementById(birthday1).value = birthday;
+        document.getElementById(gender1).value = gender;
+        document.getElementById(idCard1).value = idCard;
+        document.getElementById(phone1).value = phone;
+        document.getElementById(email1).value = email;
+        document.getElementById(address1).value = address;
+        document.getElementById(customerTypeId1).value = customerTypeId;
     }
 
 </script>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.List;
 
 @WebServlet(name = "CustomerServlet", value = "/customer")
@@ -26,14 +27,17 @@ public class CustomerServlet extends HttpServlet {
         }
         switch (action) {
             case "add":
-                insertCustomer(request, response);
+                insertCustomer(request,response);
                 break;
             case "delete":
-                showDeleteCustomer(request, response);
+                showDeleteCustomer(request,response);
                 break;
-
+            case "edit":
+                showEditCustomer(request,response);
+                break;
         }
     }
+
 
 
     private void insertCustomer(HttpServletRequest request, HttpServletResponse response) {
@@ -75,10 +79,17 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void showDeleteCustomer(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("deleteId"));
-        boolean check = iCustomerService.deleteCustomer(id);
-        List<Customer> customerList = iCustomerService.selectAllCustomer();
-        request.setAttribute("customerList", customerList);
+        String name = request.getParameter("name");
+        String birthday = request.getParameter("birthday");
+        int gender = Integer.parseInt(request.getParameter("gender"));
+        int idCard = Integer.parseInt(request.getParameter("idCard"));
+        int phone = Integer.parseInt(request.getParameter("phone"));
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
+        CustomerType customerType = new CustomerType(customerTypeId);
+        Customer newCus = new Customer(name, birthday, gender, idCard, phone, email, address, customerType);
+        boolean check = iCustomerService.insertCustomer(newCus);
         String mess = "DELETE thành công rùi đó! ";
         if (!check) {
             mess = "DELETE chưa thành công đâu!";
@@ -87,6 +98,25 @@ public class CustomerServlet extends HttpServlet {
         showListCustomer(request, response);
     }
 
+    private void showEditCustomer(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        String birthday = request.getParameter("birthday");
+        int gender = Integer.parseInt(request.getParameter("gender"));
+        int idCard = Integer.parseInt(request.getParameter("idCard"));
+        int phone = Integer.parseInt(request.getParameter("phone"));
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
+        CustomerType customerType = new CustomerType(customerTypeId);
+        Customer newCus = new Customer(name, birthday, gender, idCard, phone, email, address, customerType);
+        boolean check = iCustomerService.insertCustomer(newCus);
+        String mess = "Update thành công rùi đó! ";
+        if (!check) {
+            mess = "Update CHƯA thành công đâu!";
+        }
+        request.setAttribute("mess", mess);
+        showListCustomer(request, response);
+    }
 
     private void showListCustomer(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customerList = iCustomerService.selectAllCustomer();

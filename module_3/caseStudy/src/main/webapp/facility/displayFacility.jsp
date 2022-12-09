@@ -55,7 +55,7 @@
         </li>
         <li class="nav-item text-decoration-none">
             <a class="nav-link text-white"
-               href="#">SERVICE</a>
+               href="/facility">SERVICE</a>
         </li>
         <li class="nav-item">
             <a class="nav-link text-white"
@@ -72,7 +72,7 @@
         </form>
     </div>
 
-    <div style="color: darkred;"> <b> ${mess} </b> </div>
+    <div style="color: darkred;"><b> ${mess} </b></div>
     <table border="1" cellpadding="10">
         <tr>
 
@@ -86,8 +86,8 @@
             <th>poolArea</th>
             <th>numberOfFloor</th>
             <th>facilityFree</th>
+            <th>facilityType</th>
             <th>rentType</th>
-            <th>facilityTypeID</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -103,16 +103,18 @@
                 <td>${facility.descriptionOtherConvenience}</td>
                 <td>${facility.poolArea}</td>
                 <td>${facility.numberOfFloor}</td>
-                <td>${facility.numberOfFloornumberOfFloor}</td>
-                <td>${facility.facilityType.name}</td>
+                <td>${facility.facilityFree}</td>
+                <td>${facility.facilityTypeID.name}</td>
                 <td>${facility.rentType.name}</td>
                 <td>
-                    <button type="submit" class="btn btn-info" style="color:darkred "> edit</button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#editModal">
+                        Edit
+                    </button>
                 </td>
                 <td>
                     <button onclick="infoDelete('${facility.id}','${facility.name}')" type="button"
                             class="btn btn-danger"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            data-bs-toggle="modal" data-bs-target="#deleteModal">
                         Delete
                     </button>
                 </td>
@@ -120,18 +122,18 @@
         </c:forEach>
     </table>
 </div>
-<%--modamodal--%>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<%--deletemodal--%>
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal delete</h5>
+                <h5 class="modal-title" id="deleteModal1">Modal delete</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/customer?action=delete" method="post">
+            <form action="/facility?action=delete" method="post">
                 <div class="modal-body">
                     <input type="text" id="deleteId" name="deleteId" hidden>
-                    <span>Bạn có muốn delete customer </span><span id="deleteName"></span>?
+                    <span>Bạn có muốn delete facility  </span><span id="deleteName"></span>?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -141,6 +143,28 @@
         </div>
     </div>
 </div>
+
+<%--editmodal--%>
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModal1">Modal edit</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/customer?action=edit" method="post">
+                <div class="modal-body">
+                    <input type="text" required name="name" id="name" size="35"/>">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script>
     function infoDelete(id, name) {
         document.getElementById("deleteId").value = id;
