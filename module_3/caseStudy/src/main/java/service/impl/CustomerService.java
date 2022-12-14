@@ -38,7 +38,9 @@ ICustomerReponsitory iCustomerReponsitory = new CustomerReponsitory();
     }
 
     @Override
-    public List<Customer> searchCustomer(int id) {
-        return iCustomerReponsitory.searchCustomer(id);
+    public List<Customer> searchCustomer(String name, String address, int gender) {
+        return iCustomerReponsitory.searchCustomer(name,address,gender);
     }
+
+
 }

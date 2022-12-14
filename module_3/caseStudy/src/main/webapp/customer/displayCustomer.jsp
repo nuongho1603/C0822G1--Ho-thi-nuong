@@ -68,14 +68,18 @@
 <div align="center">
     <div>
         <caption><h5><a href="/customer"> <b> List Customer </b> </a></h5></caption>
-        <form>
-            SEARCH: <input type="text" placeholder="search">
-            <button type="submit" class="btn btn-danger"><a href="/customer?action=add"> + </a></button>
+        <form action="/customer?action=search">
+          <input type="text" id="searchName" placeholder="search by name">
+            <input type="text" id="searchAddress" placeholder="search by address ">
+            <input type="text" id="searchGender" placeholder="search by gender">
+            <button type="submit" class="btn btn-black">   SEARCH  </button>
         </form>
+        <button type="submit" class="btn btn-danger"><a href="/customer?action=add"> Create customer new </a></button>
     </div>
 
     <div style="color: darkred;"><b> ${mess} </b></div>
-    <table border="1" cellpadding="10">
+    <table border="1" cellpadding="10" class="table">
+        <thead>
         <tr>
             <th>#</th>
             <th>Name</th>
@@ -89,48 +93,55 @@
             <th>Edit</th>
             <th>Delete</th>
         </tr>
-
+        </thead>
+        <tbody>
         <c:forEach var="customer" items="${customerList}" varStatus="status">
             <tr>
                 <td>${status.count}</td>
                 <td>${customer.name}</td>
                 <td>${customer.birthday}</td>
-                <td>${customer.gender}</td>
+                <c:if test="${customer.gender == 0}">
+                    <td>Nữ</td>
+                </c:if>
+                <c:if test="${customer.gender == 1}">
+                    <td>Nam</td>
+                </c:if>
                 <td>${customer.idCard}</td>
                 <td>${customer.phone}</td>
                 <td>${customer.email}</td>
                 <td>${customer.address}</td>
                 <td>${customer.customerType.name}</td>
                 <td>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#editModal">
-                        Edit
-                    </button>
+                    <button type="submit"><a href="/customer?action=edit&id=${customer.id}">Edit</a></button>
                 </td>
                 <td>
                     <button onclick="infoDelete('${customer.id}','${customer.name}')" type="button"
-                            class="btn btn-danger"
-                            data-bs-toggle="modal" data-bs-target="#deleteModal">
+                            class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Delete
                     </button>
                 </td>
             </tr>
         </c:forEach>
+        </tbody>
     </table>
 </div>
 
 <%--deletemodal--%>
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteModal1">Modal delete</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modal delete customer</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="/customer?action=delete" method="post">
                 <div class="modal-body">
                     <input type="text" id="deleteId" name="deleteId" hidden>
+                    <input type="text" id="name" name="name" hidden>
                     <span>Bạn có muốn delete customer </span><span id="deleteName"></span>?
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-primary">Delete</button>
@@ -144,109 +155,106 @@
     function infoDelete(id, name) {
         document.getElementById("deleteId").value = id;
         document.getElementById("deleteName").innerText = name;
+        document.getElementById("name").value = name;
     }
 </script>
 
-<%--editmodal--%>
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editModal1">Modal edit</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="/customer?action=edit" method="post">
-                <div class="modal-body">
+<%--&lt;%&ndash;editmodal&ndash;%&gt;--%>
+<%--<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">--%>
+<%--    <div class="modal-dialog">--%>
+<%--        <div class="modal-content">--%>
+<%--            <div class="modal-header">--%>
+<%--                <h5 class="modal-title" id="editModal1">Modal edit</h5>--%>
+<%--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--%>
+<%--            </div>--%>
+<%--            <form action="/customer?action=edit" method="post">--%>
+<%--                <div class="modal-body">--%>
+<%--                    <div align="center">--%>
+<%--                            <table border="1" cellpadding="5">--%>
+<%--                                <caption>--%>
+<%--                                    <h5><a href="/customer"> <b>New customer </b></a></h5>--%>
+<%--                                </caption>--%>
+<%--                                <tr>--%>
+<%--                                    <th>User name:</th>--%>
+<%--                                    <td>--%>
+<%--                                        <input type="text" required name="name" id="name1" size="35"/>--%>
+<%--                                    </td>--%>
+<%--                                </tr>--%>
+<%--                                <tr>--%>
+<%--                                    <th>Birthday:</th>--%>
+<%--                                    <td>--%>
+<%--                                        <input type="date" name="birthday" id="birthday1" size="15"/>--%>
+<%--                                    </td>--%>
+<%--                                </tr>--%>
+<%--                                <tr>--%>
+<%--                                    <th>Gender:</th>--%>
+<%--                                    <td>--%>
+<%--                                        &lt;%&ndash;                    <input type="radio" name="gender"  > 0&ndash;%&gt;--%>
+<%--                                        &lt;%&ndash;                    <input type="radio" name="gender" > 1&ndash;%&gt;--%>
 
-                    <div align="center">
-                        <form method="post">
-                            <table border="1" cellpadding="5">
-                                <caption>
-                                    <h5><a href="/customer"> <b>New customer </b></a></h5>
-                                </caption>
-                                <tr>
-                                    <th>User name:</th>
-                                    <td>
-                                        <input type="text" required name="name" id="name1" size="35"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Birthday:</th>
-                                    <td>
-                                        <input type="date" name="birthday" id="birthday1" size="15"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Gender:</th>
-                                    <td>
-                                        <%--                    <input type="radio" name="gender"  > 0--%>
-                                        <%--                    <input type="radio" name="gender" > 1--%>
+<%--                                        <input type="text" required name="gender" id="gender1" size="20">--%>
+<%--                                    </td>--%>
+<%--                                </tr>--%>
+<%--                                <tr>--%>
+<%--                                    <th>ID Card:</th>--%>
+<%--                                    <td>--%>
+<%--                                        <input type="text" required name="idCard" id="idCard1" size="25"/>--%>
+<%--                                    </td>--%>
+<%--                                </tr>--%>
+<%--                                <tr>--%>
+<%--                                    <th>Phone:</th>--%>
+<%--                                    <td>--%>
+<%--                                        <input type="text" required name="phone" id="phone1" size="15"/>--%>
+<%--                                    </td>--%>
+<%--                                </tr>--%>
+<%--                                <tr>--%>
+<%--                                    <th>Customer Email:</th>--%>
+<%--                                    <td>--%>
+<%--                                        <input type="text" name="email" id="email1" size="45"/>--%>
+<%--                                    </td>--%>
+<%--                                </tr>--%>
+<%--                                <tr>--%>
+<%--                                    <th>Address:</th>--%>
+<%--                                    <td>--%>
+<%--                                        <input type="text" name="address" id="address1" size="15"/>--%>
+<%--                                    </td>--%>
+<%--                                </tr>--%>
+<%--                                <tr>--%>
+<%--                                    <th>Customer type id:</th>--%>
+<%--                                    <td>--%>
+<%--                                        <input type="text" name="customerTypeId" id="customerTypeId1" size="15"/>--%>
+<%--                                    </td>--%>
+<%--                                </tr>--%>
+<%--&lt;%&ndash;                                <tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                    <td colspan="2" align="center">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                     <button type="submit">Save</button>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                    </td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                </tr>&ndash;%&gt;--%>
+<%--                            </table>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="modal-footer">--%>
+<%--                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>--%>
+<%--                    <button type="submit" class="btn btn-primary">Edit</button>--%>
+<%--                </div>--%>
+<%--            </form>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
 
-                                        <input type="text" required name="gender" id="gender1" size="20">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>ID Card:</th>
-                                    <td>
-                                        <input type="text" required name="idCard" id="idCard1" size="25"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Phone:</th>
-                                    <td>
-                                        <input type="text" required name="phone" id="phone1" size="15"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Customer Email:</th>
-                                    <td>
-                                        <input type="text" name="email" id="email1" size="45"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Address:</th>
-                                    <td>
-                                        <input type="text" name="address" id="address1" size="15"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Customer type id:</th>
-                                    <td>
-                                        <input type="text" name="customerTypeId" id="customerTypeId1" size="15"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" align="center">
-                                        <input type="submit" value="Save"/>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
-                    </div>
+<%--<script>--%>
+<%--    function getCustomerInfo( name, birthday, gender, idCard,phone, email, address, customerTypeId) {--%>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Edit</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+<%--        document.getElementById("name1").value = name;--%>
+<%--        document.getElementById("birthday1").value = birthday;--%>
+<%--        document.getElementById("gender1").value = gender;--%>
+<%--        document.getElementById("idCard1").value = idCard;--%>
+<%--        document.getElementById("phone1").value = phone;--%>
+<%--        document.getElementById("email1").value = email;--%>
+<%--        document.getElementById("address1").value = address;--%>
+<%--        document.getElementById("customerTypeId1").value = customerTypeId;--%>
+<%--    }--%>
 
-<script>
-    function getCustomerInfo(id, name, birthday, gender, idCard, email, address, customerTypeId) {
-        document.getElementById(id1).value = id;
-        document.getElementById(name1).value = name;
-        document.getElementById(birthday1).value = birthday;
-        document.getElementById(gender1).value = gender;
-        document.getElementById(idCard1).value = idCard;
-        document.getElementById(phone1).value = phone;
-        document.getElementById(email1).value = email;
-        document.getElementById(address1).value = address;
-        document.getElementById(customerTypeId1).value = customerTypeId;
-    }
-
-</script>
+<%--</script>--%>
 </body>
 </html>

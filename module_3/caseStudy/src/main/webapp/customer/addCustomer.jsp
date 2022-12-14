@@ -88,10 +88,7 @@
             <tr>
                 <th>Gender:</th>
                 <td>
-<%--                    <input type="radio" name="gender"  > 0--%>
-<%--                    <input type="radio" name="gender" > 1--%>
-
-                <input type="text" required name="gender" id="gender" size="20">
+                    <input type="text" required name="gender" id="gender" size="20">
                 </td>
             </tr>
             <tr>

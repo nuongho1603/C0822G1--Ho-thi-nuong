@@ -10,5 +10,5 @@ public interface ICustomerService {
     List<Customer> selectAllCustomer();
     boolean deleteCustomer(int id);
     boolean updateCustomer(Customer customer);
-    List<Customer> searchCustomer(int id);
+    List<Customer> searchCustomer(String name, String address,int gender);
 }

@@ -5,6 +5,7 @@ import modal.customer.CustomerType;
 import reponsitory.BaseReponsitory;
 import reponsitory.ICustomerReponsitory;
 
+import java.awt.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +15,12 @@ public class CustomerReponsitory implements ICustomerReponsitory {
     private static final String INSERT_CUSTOMER_SQL = "INSERT INTO customer" + "  (name, date_of_birthday,gender,id_card,phone_number,email,address,customer_type_id) VALUES " +
             " (?,?,?,?,?,?,?,?);";
 
-    private static final String SELECT_CUSTOMER_BY_ID = "select name, email, date_of_birthday,gender,id_card,phone_number,email,customer_type_id from customer where id =?";
+    private static final String SELECT_CUSTOMER_BY_ID = "select name, date_of_birthday,gender,id_card,phone_number,email,address,customer_type_id from customer where id =?";
     private static final String SELECT_ALL_CUSTOMER = " select c.*,ct.name as customer_type_name from customer as c left join customer_type as ct on c.customer_type_id = ct.id;";
     private static final String DELETE_CUSTOMER_SQL = "delete from customer where id = ?;";
     private static final String UPDATE_CUSTOMER_SQL = "update customer set name =?,date_of_birthday=?,gender=?,id_card=?,phone_number=?,email=?,address =?,customer_type_id=? where id = ?;";
-//    private static final String SEARCH_CUSTOMER_SQL = "select * from customer where id=?;";
+    private static final String SEARCH_CUSTOMER_SQL = "select * from customer\n" +
+            "where gender = ? AND ( ? is null OR name like ?) AND ( ? is null OR address like ?);";
 //    private static final String DELETE_BY_ID = "call delete_by_id(?);";
 //    private final String
 
@@ -48,11 +50,11 @@ public class CustomerReponsitory implements ICustomerReponsitory {
     public Customer selectCustomer(int id) {
         Customer customer = null;
         Connection connection = BaseReponsitory.getConnection();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CUSTOMER_BY_ID);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CUSTOMER_BY_ID);) {
             preparedStatement.setInt(1, id);
+            System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 String name = rs.getString("name");
                 String birthday = rs.getString("date_of_birthday");
                 int gender = rs.getInt("gender");
@@ -60,15 +62,15 @@ public class CustomerReponsitory implements ICustomerReponsitory {
                 int phone = rs.getInt("phone_number");
                 String email = rs.getString("email");
                 String address = rs.getString("address");
-
-//               int id = rs.getInt("id");
-//               CustomerType customerType = new CustomerType(id);
-                //          customer = new Customer(id, name, birthday, gender, idCard, phone, email, address, customerType);
+                int id1 = rs.getInt("customer_type_id");
+                CustomerType customerType = new CustomerType(id1);
+                customer = new Customer(id, name, birthday, gender, idCard, phone, email, address, customerType);
             }
-            preparedStatement.executeQuery();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
+
         return customer;
     }
 
@@ -122,16 +124,16 @@ public class CustomerReponsitory implements ICustomerReponsitory {
         Connection connection = BaseReponsitory.getConnection();
         try {
             PreparedStatement statement = connection.prepareStatement(UPDATE_CUSTOMER_SQL);
-            statement.setString(1,customer.getName());
-            statement.setString(2,customer.getBirthday());
-            statement.setInt(3,customer.getGender());
-            statement.setInt(4,customer.getIdCard());
-            statement.setInt(5,customer.getPhone());
-            statement.setString(6,customer.getEmail());
-            statement.setString(7,customer.getAddress());
-            statement.setInt(8,customer.getCustomerType().getId());
-            statement.setInt(9,customer.getId());
-            rowUpdate = statement.executeUpdate() >0;
+            statement.setString(1, customer.getName());
+            statement.setString(2, customer.getBirthday());
+            statement.setInt(3, customer.getGender());
+            statement.setInt(4, customer.getIdCard());
+            statement.setInt(5, customer.getPhone());
+            statement.setString(6, customer.getEmail());
+            statement.setString(7, customer.getAddress());
+            statement.setInt(8, customer.getCustomerType().getId());
+            statement.setInt(9, customer.getId());
+            rowUpdate = statement.executeUpdate() > 0;
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -140,8 +142,35 @@ public class CustomerReponsitory implements ICustomerReponsitory {
     }
 
     @Override
-    public List<Customer> searchCustomer(int id) {
-        return null;
+    public List<Customer> searchCustomer(String name, String address, int gender) {
+        List<Customer> customerList = new ArrayList<>();
+        Connection connection = BaseReponsitory.getConnection();
+        try {
+            PreparedStatement ps = connection.prepareStatement(SEARCH_CUSTOMER_SQL);
+            ps.setString(1, "%" + name + "%");
+            ps.setString(2, "%" + address + "%");
+            ps.setInt(3, Integer.parseInt("%" + gender + "%"));
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                int id = rs.getInt("id");
+                String nameSearch = rs.getString("name");
+                String birthday = rs.getString("date_of_birthday");
+                int genderSearch = rs.getInt("gender");
+                int idCard = rs.getInt("id_card");
+                int phone = rs.getInt("phone_number");
+                String email = rs.getString("email");
+                String addressSearch = rs.getString("address");
+                String nameCustomerType = rs.getString("customer_type_name");
+                int id1 = rs.getInt("customer_type_id");
+                CustomerType customerType = new CustomerType(id1, nameCustomerType);
+                Customer customer = new Customer(id, nameSearch, birthday, genderSearch, idCard, phone, email, addressSearch, customerType);
+                customerList.add(customer);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return customerList;
     }
+
 
 }
