@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0274accb-125c-45eb-9740-2ee7fbf089f2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../module_2/module-2/src/giaithuat/giaithuat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_2/module-2/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../module_2/module-2/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_2/module-2/out/production/module-2/META-INF/module-2.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_2/module-2/out/production/module-2/ss1_introduction/exercise/ReadNumberToString.class" beforeDir="false" afterPath="$PROJECT_DIR$/../module_2/module-2/out/production/module-2/ss1_introduction/exercise/ReadNumberToString.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_2/module-2/out/production/module-2/ss1_introdustion/exercise/codegym/CurrencyConversion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_2/module-2/out/production/module-2/ss2_/practice/IsPrime.class" beforeDir="false" afterPath="$PROJECT_DIR$/../module_2/module-2/out/production/module-2/ss2_/practice/IsPrime.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_2/module-2/src/ss8/practice/practice1/FizzBuzzTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module_2/module-2/src/ss8/practice/practice1/FizzBuzzTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise2/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/exercise2/.idea/gradle.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2Ivza0aRlfuLOrSm6xV2A7ZvHxC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/exercise2" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0274accb-125c-45eb-9740-2ee7fbf089f2" name="Default Changelist" comment="" />
+      <created>1671076904197</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671076904197</updated>
+      <workItem from="1671076906358" duration="65000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1671076968104">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1671076968097" />
+  </component>
+</project>

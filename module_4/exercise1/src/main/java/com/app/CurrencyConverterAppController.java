@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/currency")
 public class CurrencyConverterAppController {
     @RequestMapping("")
-    public String currencyConvert(){
+    public String display(){
         return "/app/display";
     }
     @RequestMapping("/app")
-    public String currencyConverterApp(Model model, @RequestParam("usd") Double usd,@RequestParam("price") double price) {
+    public String converter(Model model, double usd,double price) {
         Double vnd = usd * price;
         model.addAttribute("usd",usd);
         model.addAttribute("price",price);

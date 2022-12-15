@@ -11,12 +11,12 @@ import java.net.PortUnreachableException;
 @RequestMapping("/dictionary")
 public class DictionarySimpleController {
     @RequestMapping("")
-    public String dictionary() {
+    public String display() {
         return "/form";
     }
 
     @RequestMapping("/simple")
-    public String dictionarySimple(Model model, @RequestParam("english") String english) {
+    public String translate(Model model, @RequestParam("english") String english) {
         model.addAttribute("english",english);
         String viet;
         switch (english) {
