@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2b58cfef-2bf6-40c5-a01b-58d39c9e6015" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../../../module_4/ss4_data_binding_&amp;_form/exercise/src/main/java/com/controller/ShowEmailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../module_4/ss4_data_binding_&amp;_form/exercise/src/main/java/com/modal/Email.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../module_4/ss4_data_binding_&amp;_form/exercise/src/main/java/com/reponsitory/EmailReponsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../module_4/ss4_data_binding_&amp;_form/exercise/src/main/java/com/reponsitory/IEmailReponsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../module_4/ss4_data_binding_&amp;_form/exercise/src/main/java/com/service/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../module_4/ss4_data_binding_&amp;_form/exercise/src/main/java/com/service/IEmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../module_4/ss4_data_binding_&amp;_form/exercise/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../module_4/ss4_data_binding_&amp;_form/exercise/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../module_4/ss4_data_binding_&amp;_form/exercise/src/main/webapp/WEB-INF/views/formEdit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../module_4/ss4_data_binding_&amp;_form/exercise/src/main/webapp/WEB-INF/views/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../module_4/ss4_data_binding_&amp;_form/exercise/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../module_4/exercise1/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/build/libs/exercise2-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/build/libs/exercise2-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/src/main/webapp/WEB-INF/views/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../module_4/ss2_spring_controller/exercise2/src/main/webapp/WEB-INF/views/form.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../.." />
+  </component>
+  <component name="ProjectId" id="2IzGeCjP1jPmSuuE5l1yRPp0dzs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FuramaResorts" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2b58cfef-2bf6-40c5-a01b-58d39c9e6015" name="Default Changelist" comment="" />
+      <created>1671177091583</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671177091583</updated>
+      <workItem from="1671177092952" duration="66000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1671177158621">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1671177158621" />
+  </component>
+</project>

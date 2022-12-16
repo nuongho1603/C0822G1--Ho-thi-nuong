@@ -15,8 +15,8 @@
 <center>
     <form action="/calculator/result">
 
-        <input type="text" name="number1">
-        <input type="text" name="number2">
+        <input type="text" name="number1" value="${number1}">
+        <input type="text" name="number2" value="${number2}">
 
         <button type="submit" value="additon" name="result">Additon(+)</button>
         <button type="submit" value="subtraction" name="result">Subtraction (-)</button>
