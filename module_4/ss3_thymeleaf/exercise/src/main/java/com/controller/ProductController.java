@@ -59,9 +59,7 @@ public class ProductController {
     @RequestMapping("/view/{id}")
     public String view(Model model, @PathVariable("id") int id) {
         Product product = productService.selectById(id);
-        List<Product> productList = new ArrayList<>();
-        productList.add(product);
-        model.addAttribute("productList", productList);
+        model.addAttribute("product", product);
         return "/view";
     }
 
