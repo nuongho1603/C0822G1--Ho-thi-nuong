@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:object="${productList}">
+    Name: <span th:text="*{name}" th:id="name" th:field="*{name}"></span>
+    Price: <span th:text="*{price}" th:field="*{price}"></span>
+    Content: <span th:text="*{content}" th:field="*{content}"></span>
+    Producer: <span th:text="*{producer}" th:field="*{producer}"></span>
+</div>
+
+<a th:href="@{/}">Back</a>
+</body>
+</html>

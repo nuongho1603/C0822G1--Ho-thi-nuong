@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show list</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div th:insert="~{/layout::header}"></div>
+<h5 style="text-align: center;color: indianred"><i> List product </i></h5>
+<div>
+
+
+    <!--    <button type="submit" th:size="30px"> Add</button>-->
+</div>
+
+
+<table border="1" class="table">
+    <form action="/product/search" method="post">
+        <input type="text" placeholder="Search" aria-label="Search" name="name">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Name Product</th>
+        <th>Price</th>
+        <th>Content</th>
+        <th>Producer</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product,status : ${productList}">
+        <td th:text="${status.count}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.content}"></td>
+        <td th:text="${product.producer}"></td>
+        <td>
+            <a th:href="@{/product/view/__${product.id}__}">View</a>
+        </td>
+        <td>
+            <a th:href="@{/product/edit/__${product.id}__}">Edit</a>
+        </td>
+        <td>
+            <!--            <button onclick="infoDelete('${product.id}','${product.name}')" type="button" class="btn btn-primary"-->
+            <!--                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">-->
+            <!--                <a th:href="@{/product/delete/__${product.id}__}"> Delete</a>-->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Delete
+            </button>
+
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <!--                    <input type="text" id="deleteId" name="deleteId" hidden>-->
+                    <!--                    <input type="hidden" th:field="*{id}">-->
+                    <input type="hidden" id="deleteId" name="deleteId">
+                    <span>Bạn có muốn delete product </span><span id="deleteName"></span>?
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    function infoDelete(id, name) {
+        document.getElementById("deleteId").value = id;
+        document.getElementById("deleteName").innerText = name;
+    }
+</script>
+</html>
