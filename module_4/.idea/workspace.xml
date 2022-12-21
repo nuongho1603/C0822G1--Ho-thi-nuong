@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0274accb-125c-45eb-9740-2ee7fbf089f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../module_2/module-2/src/giaithuat/giaithuat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../module_2/module-2/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../module_2/module-2/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../module_2/module-2/out/production/module-2/META-INF/module-2.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../module_2/module-2/out/production/module-2/ss1_introduction/exercise/ReadNumberToString.class" beforeDir="false" afterPath="$PROJECT_DIR$/../module_2/module-2/out/production/module-2/ss1_introduction/exercise/ReadNumberToString.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../module_2/module-2/out/production/module-2/ss1_introdustion/exercise/codegym/CurrencyConversion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../module_2/module-2/out/production/module-2/ss2_/practice/IsPrime.class" beforeDir="false" afterPath="$PROJECT_DIR$/../module_2/module-2/out/production/module-2/ss2_/practice/IsPrime.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../module_2/module-2/src/ss8/practice/practice1/FizzBuzzTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module_2/module-2/src/ss8/practice/practice1/FizzBuzzTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise2/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/exercise2/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="7f65d4d3-75c2-4e32-a918-1c74a277f6ba" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ss7_ss17_spring_boot/src/main/java/com/controller/BlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss7_ss17_spring_boot/src/main/java/com/model/MyBlog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss7_ss17_spring_boot/src/main/java/com/repository/IBlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss7_ss17_spring_boot/src/main/java/com/service/BlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss7_ss17_spring_boot/src/main/java/com/service/IBlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss7_ss17_spring_boot/src/main/resources/templates/blog/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss7_ss17_spring_boot/src/main/resources/templates/blog/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_ss6_orm/exercise/.idea/modules/exercise.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_ss6_orm/exercise/.idea/modules/exercise.main.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,40 +22,95 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="2Ivza0aRlfuLOrSm6xV2A7ZvHxC" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2JDcwUMy66B7te9CHMYsfnNXsg8" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="company" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/exercise2" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
+      <module name="module_4" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0274accb-125c-45eb-9740-2ee7fbf089f2" name="Default Changelist" comment="" />
-      <created>1671076904197</created>
+      <changelist id="7f65d4d3-75c2-4e32-a918-1c74a277f6ba" name="Changes" comment="" />
+      <created>1671616335033</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1671076904197</updated>
-      <workItem from="1671076906358" duration="65000" />
+      <updated>1671616335033</updated>
+      <workItem from="1671616336368" duration="64000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1671076968104">
-      <screen x="0" y="0" width="1536" height="816" />
-    </state>
-    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1671076968097" />
+    <option name="version" value="3" />
   </component>
 </project>
