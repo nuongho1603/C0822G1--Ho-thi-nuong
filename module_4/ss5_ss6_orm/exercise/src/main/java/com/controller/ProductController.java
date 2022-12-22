@@ -1,22 +1,18 @@
 package com.controller;
 
-import com.modal.Product;
+import com.model.Product;
 import com.service.IProductService;
 import com.service.ProductService;
-import org.hibernate.HibernateException;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
 @Controller
 @RequestMapping("/product")
 public class ProductController {
-    IProductService iProductService = new ProductService();
+  private IProductService iProductService = new ProductService();
 
     //    static {
 //        try {

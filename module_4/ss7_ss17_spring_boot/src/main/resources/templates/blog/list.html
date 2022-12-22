@@ -43,7 +43,7 @@
 
         </td>
         <td>
-            <button th:onclick="|infoDelete('${blog.id}','${blog.title}')|" type="button" class="btn btn-primary"
+            <button th:attr="onclick=|getBlogId('${blog.id}','${blog.title}')|" type="button" class="btn btn-primary"
                     data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Delete
             </button>
@@ -63,8 +63,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" id="deleteId" name="deleteId" hidden>
-                    <span>Bạn có muốn delete blog </span><span id="deleteTitle" style="color: #a600ff"></span>?
+<!--                    <input type="text"  th:field="*{id}" id="deleteId" name="deleteId" hidden>-->
+                    <input id="deleteId" th:field="*{id}" type="hidden" name="deleteId" >
+                    <span>Bạn có muốn delete blog  </span><span id="deleteTitle" style="color: #a600ff"></span>?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

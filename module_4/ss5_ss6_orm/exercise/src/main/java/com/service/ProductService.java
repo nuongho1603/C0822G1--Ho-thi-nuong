@@ -1,13 +1,13 @@
 package com.service;
 
-import com.modal.Product;
-import com.reponsitory.IProductReponsitory;
-import com.reponsitory.ProductReponsitory;
+import com.model.Product;
+import com.repository.IProductReponsitory;
+import com.repository.ProductReponsitory;
 
 import java.util.List;
 
 public class ProductService implements IProductService {
-    IProductReponsitory iProductReponsitory = new ProductReponsitory();
+  private   IProductReponsitory iProductReponsitory = new ProductReponsitory();
 
     @Override
     public List<Product> selectAllProduct() {
