@@ -11,26 +11,30 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-
-<table border="1">
-    <p th:text="${mess}"></p>
-    <a th:href="@{/song/create}">
-       <button class="btn btn-outline-success" type="submit"> Add song </button>
-    </a>
+<center>
+<table border="1" class="table table-success table-striped">
+    <p style="color: cadetblue;text-align: center;font-size: 15px" th:text="${mess}"></p>
+    <h6 style="color: brown" th:size="20" > <i> Develop song </i></h6>
     <thead>
     <tr>
         <th>#</th>
-        <th>nameSong</th>
-        <th>singer</th>
-        <th>kindOfMusic</th>
+        <th>Name Song</th>
+        <th>Singer</th>
+        <th>Kind Of Music</th>
+        <th>
+            <a th:href="@{/song/create}" >
+                <button class="btn btn-outline-success" type="submit"> + </button>
+            </a>
+
+        </th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="song,status : ${songInfos}">
-        <td th:text="${status.count }"></td>
-        <td th:text="${song.nameSong}"></td>
-        <td th:text="${song.singer}"></td>
-        <td th:text="${song.kindOfMusic}"></td>
+        <td class="table-dark" th:text="${status.count }"></td>
+        <td class="table-primary" th:text="${song.nameSong}"></td>
+        <td class="table-danger" th:text="${song.singer}"></td>
+        <td class="table-warning" th:text="${song.kindOfMusic}"></td>
         <td>
             <a th:href="@{/song/edit/__${song.id}__}">
                 <button type="button" class="btn btn-outline-success">Update</button>
@@ -41,5 +45,6 @@
     </tr>
     </tbody>
 </table>
+</center>
 </body>
 </html>
