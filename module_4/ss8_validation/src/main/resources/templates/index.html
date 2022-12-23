@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/user/save" method="post" th:object="${userDto}" th:charset="utf-8">
+<!--    <input type="hidden" th:field="*{id}">-->
+    <label th:for="firstName"> firstName: </label>
+    <input type="text" th:field="*{firstName}">
+
+    <label th:for="lastName"> lastName: </label>
+    <input type="text" th:field="*{lastName}">
+    <p th:errors="*{lastName}" class="text-danger"></p>
+
+    <label th:for="phone"> phone </label>
+    <input type="text" th:field="*{phone}">
+    <p th:errors="*{phone}" class="text-danger"></p>
+
+    <label th:for="age"> age: </label>
+    <input type="text" th:field="*{age}">
+    <p th:errors="*{age}" class="text-danger"></p>
+
+    <label th:for="email"> email: </label>
+    <input type="text" th:field="*{email}">
+    <p th:errors="*{email}" class="text-danger"></p>
+
+    <input type="submit" value="Đăng kí">
+</form>
+</body>
+</html>
