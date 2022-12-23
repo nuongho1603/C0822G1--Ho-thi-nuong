@@ -26,7 +26,7 @@ public class SongInfoController {
     public String show(Model model) {
         List<SongInfo> songInfos = iSongInfoService.findAll();
         model.addAttribute("songInfos", songInfos);
-        return "list";
+        return "/list";
     }
 
     @GetMapping("/create")
@@ -36,17 +36,17 @@ public class SongInfoController {
     }
 
     @PostMapping("/save")
-    public String create(Model model, @Validated @ModelAttribute("songDoto") SongInfoDto songDoto, BindingResult bindingResult) {
-        new SongInfoDto().validate(songDoto, bindingResult);
+    public String create(Model model, @Validated @ModelAttribute("songDto") SongInfoDto songDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        new SongInfoDto().validate(songDto, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "create";
         }
         SongInfo songInfo = new SongInfo();
-        BeanUtils.copyProperties(songDoto, songInfo);
+        BeanUtils.copyProperties(songDto, songInfo);
         iSongInfoService.save(songInfo);
         model.addAttribute("mess", "Them thành công! ");
-        return "list";
+        return "redirect:/song";
     }
 
 
@@ -56,19 +56,19 @@ public class SongInfoController {
         model.addAttribute("songInfos", songInfos);
         Optional<SongInfo> song = iSongInfoService.findById(id);
         model.addAttribute("song", song);
-        return "/edit";
+        return "edit";
     }
 
     @PostMapping("/edit")
-    public String edit(Model model, @ModelAttribute("song") SongInfo song, @Validated @ModelAttribute("songDoto") SongInfoDto songDoto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String edit(Model model, @Validated @ModelAttribute("song") SongInfo song, BindingResult bindingResult) {
 
 //        new SongInfoDto().validate(songDoto,bindingResult);
 //
 //        if (bindingResult.hasErrors()) {
 //            return "/edit";
 //        }
-////        SongInfo songInfo = new SongInfo();
-//        BeanUtils.copyProperties(songDoto,song);
+//        SongInfo songInfo = new SongInfo();
+//        BeanUtils.copyProperties(song,songInfo);
 
         iSongInfoService.save(song);
         List<SongInfo> songInfos = iSongInfoService.findAll();

@@ -12,7 +12,7 @@
 </head>
 <body>
 <form action="/song/save" method="post" th:object="${songDto}" th:charset="utf-8">
-<!--        <input type="hidden" th:field="*{id}">-->
+
     <label th:for="nameSong"> Name Song: </label>
     <input type="text" th:field="*{nameSong}">
     <p th:errors="*{nameSong}" class="text-danger"></p>
