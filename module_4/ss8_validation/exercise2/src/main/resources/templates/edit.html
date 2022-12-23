@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/song/edit" method="post" th:object="${song}" th:charset="utf-8">
+            <input type="hidden" th:field="*{id}">
+    <label th:for="nameSong"> Name Song: </label>
+    <input type="text" th:field="*{nameSong}">
+    <p th:errors="*{nameSong}" class="text-danger"></p>
+
+    <label th:for="singer"> Singer: </label>
+    <input type="text" th:field="*{singer}">
+    <p th:errors="*{singer}" class="text-danger"></p>
+
+    <label th:for="kindOfMusic"> kindOfMusic </label>
+    <input type="text" th:field="*{kindOfMusic}">
+    <p th:errors="*{kindOfMusic}" class="text-danger"></p>
+
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>
