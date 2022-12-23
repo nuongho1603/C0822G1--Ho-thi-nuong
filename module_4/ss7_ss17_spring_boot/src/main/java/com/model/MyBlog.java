@@ -1,20 +1,29 @@
 package com.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 //@Table(name = "blog")
 public class MyBlog {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
     private String writer;
     private String content;
     private String dateCreated;
-    private String category;
-
+    @ManyToOne
+private Category category;
     public MyBlog() {
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public int getId() {
@@ -57,11 +66,5 @@ public class MyBlog {
         this.dateCreated = dateCreated;
     }
 
-    public String getCategory() {
-        return category;
-    }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
 }

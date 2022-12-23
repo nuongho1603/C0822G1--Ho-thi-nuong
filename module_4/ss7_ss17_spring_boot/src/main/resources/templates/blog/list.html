@@ -15,6 +15,13 @@
     <a th:href="@{/blog/create}">
         <button class="btn btn-outline-success" type="submit"> +</button>
     </a>
+
+    <form action="/blog/search" method="post">
+        <input type="text" placeholder="Search" aria-label="Search" name="search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+        >
+    </form>
+
     <p th:text="${mess}"></p>
     <thead>
     <tr>
@@ -29,13 +36,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="blog,status : ${blogList}">
-        <td th:text="${status.count}"></td>
+    <tr th:each="blog,status : ${blogList.content}">
+        <td th:text="${status.count }"></td>
         <td th:text="${blog.title}"></td>
         <td th:text="${blog.writer}"></td>
         <td th:text="${blog.content}"></td>
         <td th:text="${blog.dateCreated}"></td>
-        <td th:text="${blog.category}"></td>
+        <td th:text="${blog.category.name}"></td>
         <td>
             <a th:href="@{/blog/edit/__${blog.id}__}">
                 <button type="button" class="btn btn-outline-success">Edit</button>
@@ -43,45 +50,54 @@
 
         </td>
         <td>
-            <button th:attr="onclick=|getBlogId('${blog.id}','${blog.title}')|" type="button" class="btn btn-primary"
-                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Delete
-            </button>
-
+<!--            <button th:attr="onclick=|getBlogId('${blog.id}','${blog.title}')|" type="button" class="btn btn-primary"-->
+<!--                    data-bs-toggle="modal" data-bs-target="#exampleModal">-->
+<!--                Delete-->
+<!--            </button>-->
+<button>Delete</button>
         </td>
     </tr>
     </tbody>
 </table>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form action="/blog/delete" method="post">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-<!--                    <input type="text"  th:field="*{id}" id="deleteId" name="deleteId" hidden>-->
-                    <input id="deleteId" th:field="*{id}" type="hidden" name="deleteId" >
-                    <span>Bạn có muốn delete blog  </span><span id="deleteTitle" style="color: #a600ff"></span>?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Delete</button>
-                </div>
-            </div>
-        </div>
-    </form>
+<div style="text-align: right; margin-right: 150px">
+    <a class="btn btn-secondary" th:href="@{/blog(page=${blogList.number - 1})}" th:if="${blogList.hasPrevious()}">
+        Previous
+    </a>
+    <span th:text="${blogList.number + 1 + '/' + blogList.totalPages}"></span>
+    <a class="btn btn-primary" th:href="@{/blog(page=${blogList.number + 1})}" th:if="${blogList.hasNext()}">
+        Next
+    </a>
 </div>
+<!--&lt;!&ndash; Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <form action="/blog/delete" method="post">-->
+<!--        <div class="modal-dialog">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header">-->
+<!--                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+<!--                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--&lt;!&ndash;                    <input type="text"  th:field="*{id}" id="deleteId" name="deleteId" hidden>&ndash;&gt;-->
+<!--                 &lt;!&ndash;   <input id="deleteId" th:field="*{id}" type="hidden" name="deleteId" > &ndash;&gt;-->
+<!--                    <span>Bạn có muốn delete blog  </span><span id="deleteTitle" style="color: #a600ff"></span>?-->
+<!--                </div>-->
+<!--                <div class="modal-footer">-->
+<!--                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--                    <button type="submit" class="btn btn-primary">Delete</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
 </body>
 
-<script>
-    function infoDelete(id, title) {
-        document.getElementById("deleteId").value = id;
-        document.getElementById("deleteTitle").innerText = title;
-    }
-</script>
+<!--<script>-->
+<!--    function infoDelete(id, title) {-->
+<!--        document.getElementById("deleteId").value = id;-->
+<!--        document.getElementById("deleteTitle").innerText = title;-->
+<!--    }-->
+<!--</script>-->
 
 </html>

@@ -20,7 +20,11 @@
     <input type="text" th:field="*{dateCreated}">
 
     <label th:for="category"> category: </label>
-    <input type="text" th:field="*{category}">
+    <select th:field ="*{category}">
+        <option th:each="item : ${categoryList}" th:value="${item.id}" th:text="${item.name}"></option>
+    </select>
+
+    <!--    <input type="text" th:field="*{category}">-->
     <input type="submit" value="Save !">
 </form>
 </body>
