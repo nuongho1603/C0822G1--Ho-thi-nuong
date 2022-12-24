@@ -26,7 +26,7 @@ public class SongInfoController {
     public String show(Model model) {
         List<SongInfo> songInfos = iSongInfoService.findAll();
         model.addAttribute("songInfos", songInfos);
-        return "/list";
+        return "list";
     }
 
     @GetMapping("/create")
@@ -45,35 +45,38 @@ public class SongInfoController {
         SongInfo songInfo = new SongInfo();
         BeanUtils.copyProperties(songDto, songInfo);
         iSongInfoService.save(songInfo);
+        List<SongInfo> songInfos = iSongInfoService.findAll();
+        model.addAttribute("songInfos", songInfos);
         model.addAttribute("mess", "Them thành công! ");
-        return "redirect:/song";
+        return "list";
     }
 
 
     @GetMapping("/edit/{id}")
     public String showEdit(Model model, @PathVariable("id") int id) {
-        List<SongInfo> songInfos = iSongInfoService.findAll();
-        model.addAttribute("songInfos", songInfos);
+
         Optional<SongInfo> song = iSongInfoService.findById(id);
-        model.addAttribute("song", song);
+        SongInfoDto songDto = new SongInfoDto();
+        songDto.setNameSong(song.get().getNameSong());
+        songDto.setSinger(song.get().getSinger());
+        songDto.setKindOfMusic(song.get().getKindOfMusic());
+        model.addAttribute("songDto", songDto);
         return "edit";
     }
 
     @PostMapping("/edit")
-    public String edit(Model model, @Validated @ModelAttribute("song") SongInfo song, BindingResult bindingResult) {
+    public String edit(Model model, @Validated @ModelAttribute("songDto") SongInfoDto songDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        new SongInfoDto().validate(songDto, bindingResult);
+        if (bindingResult.hasErrors()) {
+            return "edit";
+        }
 
-//        new SongInfoDto().validate(songDoto,bindingResult);
-//
-//        if (bindingResult.hasErrors()) {
-//            return "/edit";
-//        }
-//        SongInfo songInfo = new SongInfo();
-//        BeanUtils.copyProperties(song,songInfo);
-
-        iSongInfoService.save(song);
+        SongInfo songInfo = new SongInfo();
+        BeanUtils.copyProperties(songDto, songInfo);
+        iSongInfoService.save(songInfo);
         List<SongInfo> songInfos = iSongInfoService.findAll();
         model.addAttribute("songInfos", songInfos);
         model.addAttribute("mess", "Update blog thành công! ");
-        return "redirect:/song";
+        return "list";
     }
 }

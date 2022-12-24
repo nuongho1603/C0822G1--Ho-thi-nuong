@@ -1,5 +1,7 @@
 package com.model;
 
+import org.springframework.validation.BindingResult;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -47,5 +49,8 @@ public class SongInfo {
 
     public void setKindOfMusic(String kindOfMusic) {
         this.kindOfMusic = kindOfMusic;
+    }
+
+    public void validate(SongInfo song, BindingResult bindingResult) {
     }
 }

@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d7422aed-a6b1-4a55-8b46-86b9508be9c6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/SongInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/SongInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/SongInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/model/SongInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/edit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +70,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1671797735511</updated>
-      <workItem from="1671797736894" duration="7376000" />
+      <workItem from="1671797736894" duration="7557000" />
+      <workItem from="1671892131820" duration="1521000" />
     </task>
     <servers />
   </component>
@@ -85,5 +88,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

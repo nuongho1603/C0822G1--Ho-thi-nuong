@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/song/edit" method="post" th:object="${song}" th:charset="utf-8">
+<form action="/song/edit" method="post" th:object="${songDto}" th:charset="utf-8">
             <input type="hidden" th:field="*{id}">
     <label th:for="nameSong"> Name Song: </label>
     <input type="text" th:field="*{nameSong}">
