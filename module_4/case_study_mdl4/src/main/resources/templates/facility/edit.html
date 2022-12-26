@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/facility/save" method="post" th:object="${facility}" th:charset="utf-8">
+    <input type="hidden" th:field="*{id}">
+    <label th:for="name"> Name: </label>
+    <input type="text" th:field="*{name}">
+
+    <label th:for="area"> area: </label>
+    <input type="text" th:field="*{area}">
+
+    <label th:for="cost"> cost: </label>
+    <input type="text" th:field="*{cost}">
+
+    <label th:for="maxPeople"> maxPeople </label>
+    <input type="text" th:field="*{maxPeople}">
+
+    <label th:for="standardRoom"> standardRoom: </label>
+    <input type="text" th:field="*{standardRoom}">
+
+    <label th:for="descriptionOtherConvenience"> descriptionOtherConvenience: </label>
+    <input type="text" th:field="*{descriptionOtherConvenience}">
+
+    <label th:for="poolArea"> poolArea: </label>
+    <input type="text" th:field="*{poolArea}">
+
+    <label th:for="numberOfFloors"> numberOfFloors: </label>
+    <input type="text" th:field="*{numberOfFloors}">
+
+    <label th:for="facilityFree"> facilityFree: </label>
+    <input type="text" th:field="*{facilityFree}">
+
+    <label th:for="rentType"> rentType: </label>
+    <select th:field ="*{rentType}">
+        <option th:each="item : ${rentTypes}" th:value="${item.id}" th:text="${item.name}"></option>
+    </select>
+
+    <label th:for="facilityType"> facilityType: </label>
+    <select th:field ="*{facilityType}">
+        <option th:each="item : ${facilityTypes}" th:value="${item.id}" th:text="${item.name}"></option>
+    </select>
+    <input type="submit" value="Save !">
+</body>
+</html>

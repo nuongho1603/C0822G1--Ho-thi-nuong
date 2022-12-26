@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/customer/save" method="post" th:object="${customer}" th:charset="utf-8">
+    <input type="hidden" th:field="*{id}">
+    <label th:for="name"> Name: </label>
+    <input type="text" th:field="*{name}">
+
+    <label th:for="dateOfBirth"> Date Of Birth: </label>
+    <input type="text" th:field="*{dateOfBirth}">
+
+    <label th:for="gender"> gender: </label>
+    <input type="text" th:field="*{gender}">
+
+    <label th:for="idCard"> ID Card </label>
+    <input type="text" th:field="*{idCard}">
+
+    <label th:for="phoneNumber"> Phone Number: </label>
+    <input type="text" th:field="*{phoneNumber}">
+
+    <label th:for="email"> Email: </label>
+    <input type="text" th:field="*{email}">
+
+    <label th:for="address"> address: </label>
+    <input type="text" th:field="*{address}">
+
+    <label th:for="customerType"> Customer Type: </label>
+    <select th:field ="*{customerType}">
+        <option th:each="item : ${customerTypes}" th:value="${item.id}" th:text="${item.name}"></option>
+    </select>
+    <input type="submit" value="Save !">
+</form>
+</body>
+</html>

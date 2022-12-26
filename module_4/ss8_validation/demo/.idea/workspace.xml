@@ -5,28 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41f8204e-8a3d-4a82-b9cc-19cac904655a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise2/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise2/src/main/java/com/model/SongInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise2/src/main/java/com/model/dto/SongInfoDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/Exercise1Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/model/dto/UserDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/repository/IUserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/service/IUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/templates/result.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/test/java/com/Exercise1ApplicationTests.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module_3/final_exam_mld3/final/.idea/final.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module_3/final_exam_mld3/final/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module_3/final_exam_mld3/final/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/controller/FacilityController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/model/customer/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/model/customer/CustomerType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/model/employee/Division.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/model/employee/EducationDegree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/model/employee/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/model/employee/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/model/employee/userRole/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/model/employee/userRole/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/model/employee/userRole/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/model/facility/Facility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/model/facility/FacilityType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/model/facility/RentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/repository/ICustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/repository/ICustomerTypeReponsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/repository/IEmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/repository/IFacilityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/service/customer/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/service/customer/ICustomerTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/service/customer/impl/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/service/customer/impl/CustomerTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/service/employee/EmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/service/employee/IEmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/service/facility/FacilityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/java/com/service/facility/IFacilityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/resources/templates/customer/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/resources/templates/customer/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/resources/templates/customer/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study_mdl4/src/main/resources/templates/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4_data_binding_&amp;_form/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4_data_binding_&amp;_form/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4_data_binding_&amp;_form/.idea/ss4_data_binding_&amp;_form.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4_data_binding_&amp;_form/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4_data_binding_&amp;_form/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_ss17_spring_boot/src/main/resources/templates/blog/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss7_ss17_spring_boot/src/main/resources/templates/blog/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise2/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +71,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../exercise1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../exercise2" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -63,6 +83,8 @@
       <updated>1671797545496</updated>
       <workItem from="1671797546917" duration="187000" />
       <workItem from="1671798124935" duration="30000" />
+      <workItem from="1672036653229" duration="11000" />
+      <workItem from="1672039293003" duration="17000" />
     </task>
     <servers />
   </component>
