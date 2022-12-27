@@ -45,9 +45,19 @@ public class FacilityController {
     }
 
     @PostMapping("/save")
-    public String edit(Model model, @ModelAttribute("facility") Facility facility, RedirectAttributes redirectAttributes) {
+    public String save(Model model, @ModelAttribute("facility") Facility facility, RedirectAttributes redirectAttributes) {
         iFacilityService.save(facility);
         redirectAttributes.addAttribute("mess", "Bạn đã thao tác thành công! ");
         return "redirect:/facility";
+    }
+
+    @GetMapping("/create")
+    public String showCreate(Model model) {
+        List<FacilityType> facilityTypes = iFacilityTypeService.findAll();
+        List<RentType> rentTypes = iRentTypeService.findAll();
+        model.addAttribute("facility", new Facility());
+        model.addAttribute("facilityTypes", facilityTypes);
+        model.addAttribute("rentTypes", rentTypes);
+        return "/facility/create";
     }
 }

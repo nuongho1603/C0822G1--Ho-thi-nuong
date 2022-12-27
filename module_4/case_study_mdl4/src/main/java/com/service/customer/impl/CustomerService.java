@@ -1,9 +1,12 @@
 package com.service.customer.impl;
 
 import com.model.customer.Customer;
+import com.model.customer.CustomerType;
 import com.repository.ICustomerRepository;
 import com.service.customer.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,4 +31,12 @@ public class CustomerService implements ICustomerService {
     public Optional<Customer> findById(int id) {
         return iCustomerRepository.findById(id);
     }
+
+    @Override
+    public Page<Customer> searchName(String name, String email, String customerType, Pageable pageable) {
+        return iCustomerRepository.searchName(name,email,customerType,pageable);
+    }
+//    public Page<Customer> searchName(String name, String email,  Pageable pageable) {
+//        return iCustomerRepository.searchName(name,email,pageable);
+//    }
 }

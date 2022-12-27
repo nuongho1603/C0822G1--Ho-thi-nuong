@@ -10,19 +10,21 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<table border="1"class="table table-success table-striped">
+<table border="1" class="table table-success table-striped">
 
     <form action="/customer/search" method="post">
-        <input type="text" placeholder="Search" aria-label="Search" name="search">
+        <input type="text" placeholder="Nhập tên.." aria-label="Search" name="name" size="15">
+        <input type="text" placeholder="Nhập email.." aria-label="Search" name="email" size="20">
+        <input type="text" placeholder="Nhập loại khách.." aria-label="Search" name="customerType" size="20"> >
         <button class="btn btn-outline-success" type="submit">Search</button>
-        >
+
     </form>
 
     <p style="color: cadetblue;text-align: center;font-size: 15px" th:text="${mess}"></p>
     <thead>
     <tr>
         <th>#</th>
-        <th >Name</th>
+        <th>Name</th>
         <th>Date Of Birth</th>
         <th>Gender</th>
         <th>ID Card</th>
@@ -32,17 +34,17 @@
         <th>Customer Type</th>
         <th>
             <a th:href="@{/customer/create}">
-                <button class="btn btn-outline-success" type="submit"> + </button>
+                <button class="btn btn-outline-success" type="submit"> +</button>
             </a>
         </th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="customer,status : ${customerList}">
+    <tr th:each="customer,status : ${customerList.content}">
         <td th:text="${status.count }" class="table-primary"></td>
-        <td th:text="${customer.name}"  class="table-success"></td>
+        <td th:text="${customer.name}" class="table-success"></td>
         <td th:text="${customer.dateOfBirth}" class="table-secondary"></td>
-        <td th:if="${customer.gender}==0" class="table-warning">Nữ </td>
+        <td th:if="${customer.gender}==0" class="table-warning">Nữ</td>
         <td th:if="${customer.gender}==1" class="table-warning">Nam</td>
         <td th:text="${customer.idCard}" class="table-info"></td>
         <td th:text="${customer.phoneNumber}" class="table-dark"></td>
@@ -62,14 +64,16 @@
 </table>
 
 <!--Phân trang-->
-<!--<div style="text-align: right; margin-right: 150px">-->
-<!--    <a class="btn btn-secondary" th:href="@{/blog(page=${blogList.number - 1})}" th:if="${blogList.hasPrevious()}">-->
-<!--        Previous-->
-<!--    </a>-->
-<!--    <span th:text="${blogList.number + 1 + '/' + blogList.totalPages}"></span>-->
-<!--    <a class="btn btn-primary" th:href="@{/blog(page=${blogList.number + 1})}" th:if="${blogList.hasNext()}">-->
-<!--        Next-->
-<!--    </a>-->
-<!--</div>-->
+<div style="text-align: right; margin-right: 150px">
+    <a class="btn btn-secondary" th:href="@{/customer(page=${customerList.number - 1})}"
+       th:if="${customerList.hasPrevious()}">
+        Previous
+    </a>
+    <span th:text="${customerList.number + 1 + '/' + customerList.totalPages}"></span>
+    <a class="btn btn-primary" th:href="@{/customer(page=${customerList.number + 1})}"
+       th:if="${customerList.hasNext()}">
+        Next
+    </a>
+</div>
 </body>
 </html>

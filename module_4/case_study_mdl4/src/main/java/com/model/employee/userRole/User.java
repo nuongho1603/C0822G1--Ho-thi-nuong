@@ -12,7 +12,8 @@ public class User {
     private String userName;
     private String password;
     @OneToOne(mappedBy = "user")
-private Employee employee;
+    private Employee employee;
+
     public User() {
     }
 

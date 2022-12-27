@@ -1,5 +1,7 @@
 package com.model.customer;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,8 +12,11 @@ public class Customer {
     private String name;
     private String dateOfBirth;
     private String gender;
+    @UniqueElements
     private String idCard;
+    @UniqueElements
     private String phoneNumber;
+    @UniqueElements
     private String email;
     private String address;
     @ManyToOne
