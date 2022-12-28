@@ -29,15 +29,11 @@ public class CustomerController {
 
 
     @RequestMapping("")
-    public String show(Model model, @RequestParam(value = "searchName", defaultValue = "") String name, @RequestParam(value = "searchEmail", defaultValue = "") String email, String customerType, @PageableDefault(size = 4) Pageable pageable) {
-        //        Page<CustomerDto> customerDto = null;
-//        assert customerDto != null;
-        //  BeanUtils.copyProperties(customerList,customerDto );
+    public String show(Model model, @RequestParam(defaultValue = "") String name, @RequestParam(defaultValue = "") String email, @RequestParam(defaultValue = "") String customerType, @PageableDefault(size = 4) Pageable pageable) {
+
         Page<Customer> customerList = iCustomerService.searchName(name, email, customerType, pageable);
-        //  List<CustomerType> customerTypes = iCustomerTypeService.findAll();
-        //  model.addAttribute("customerDto", customerDto);
-        //   model.addAttribute("customerTypes", customerTypes);
         model.addAttribute("customerList", customerList);
+        model.addAttribute("customerType", customerType);
         return "/customer/list";
     }
 
@@ -57,7 +53,7 @@ public class CustomerController {
         List<Customer> customerList = iCustomerService.findAll();
         model.addAttribute("customerList", customerList);
         model.addAttribute("mess", "Bạn đã thao tác thành công! ");
-        return "/customer";
+        return "redirect:/customer";
     }
 
     @GetMapping("/create")

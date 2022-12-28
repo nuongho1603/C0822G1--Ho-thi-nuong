@@ -40,7 +40,7 @@ public class OrderBookController {
     }
 
     @PostMapping("/order")
-    public String order(Model model, @RequestParam Integer id,RedirectAttributes redirectAttributes) {
+    public String order(Model model, @RequestParam Integer id, RedirectAttributes redirectAttributes) {
         int bookCode = (int) (Math.random() * (99999 - 10000) + 10000);
         Library library = iOrderService.findId(id);
 
@@ -50,22 +50,22 @@ public class OrderBookController {
         library.setQuantity(library.getQuantity() - 1);
         iOrderService.save(library);
 
-        model.addAttribute("message","Order thánh công! "+ bookCode);
+        redirectAttributes.addFlashAttribute("mess", "Order thánh công! " + bookCode);
         return "redirect:/library";
 
     }
 
-@GetMapping("/return")
-    public String returnBook(@RequestParam int bookCode,RedirectAttributes redirectAttributes)
-{
-    History history = iHistoryService.findBookCode(bookCode);
-    iHistoryService.save(history);
+    @GetMapping("/return")
+    public String returnBook(@RequestParam int bookCode, RedirectAttributes redirectAttributes) {
+        History history = iHistoryService.findBookCode(bookCode);
+        iHistoryService.save(history);
 
-    Library library = history.getLibrary();
-    library.setQuantity(library.getQuantity() +1);
-    iOrderService.save(library);
+        Library library = history.getLibrary();
+        library.setQuantity(library.getQuantity() + 1);
+        iOrderService.save(library);
 
-    redirectAttributes.addFlashAttribute("message", "Return book successful! Thank you!");
-    return "redirect:";
-}
+
+        redirectAttributes.addFlashAttribute("mess", "Return book successful! Thank you!");
+        return "redirect:";
+    }
 }

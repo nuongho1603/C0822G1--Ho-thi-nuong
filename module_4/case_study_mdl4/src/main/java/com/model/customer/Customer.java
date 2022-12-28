@@ -12,11 +12,11 @@ public class Customer {
     private String name;
     private String dateOfBirth;
     private String gender;
-    @UniqueElements
+ @Column(unique = true)
     private String idCard;
-    @UniqueElements
+    @Column(unique = true)
     private String phoneNumber;
-    @UniqueElements
+    @Column(unique = true)
     private String email;
     private String address;
     @ManyToOne

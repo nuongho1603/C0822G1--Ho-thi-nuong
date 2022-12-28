@@ -13,18 +13,16 @@
 <body>
 <table border="1"class="table table-success table-striped">
 <h6><i>Library </i></h6>
-    <h2 th:if="${#messages}">
-        <span th:text="${#messages}"></span>
+    <h2 th:if="${message}">
+        <span th:text="${message}"></span>
     </h2>
-    <form action="/return" novalidate="novalidate">
-        <div class="search-box">
-            <input type="text" name="bookCode" placeholder="..OTP..">
-        </div>
-        <button class="btn btn-success" type="submit">Return
-
-        </button>
+    <form action="/library/return">
+            <input type="text" name="bookCode" placeholder="Nhập số lượng ..">
+        <button class="btn btn-success" type="submit">Return</button>
     </form>
-    <p style="color: cadetblue;text-align: center;font-size: 15px" th:text="${mess}"></p>
+    <div th:if ="${mess}">
+        <p style="color: red;font-weight: bold" th:text="${mess}"></p>
+    </div>
     <thead>
     <tr>
         <th>#</th>
