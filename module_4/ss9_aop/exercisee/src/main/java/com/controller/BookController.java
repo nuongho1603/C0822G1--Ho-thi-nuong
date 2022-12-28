@@ -36,7 +36,7 @@ public class BookController {
     }
 
     @GetMapping("/borrow/{id}")
-    public String borrow(@PathVariable int id, Model model) {
+    public String showBorrow(@PathVariable int id, Model model) {
         Book book = iBookService.findById(id).get();
         model.addAttribute("book", book);
         return "book/borrow";
@@ -59,7 +59,7 @@ public class BookController {
     }
 
     @GetMapping("/pay/{id}")
-    public String pay(@PathVariable int id, Model model) {
+    public String showPay(@PathVariable int id, Model model) {
         Book book = iBookService.findById(id).get();
         model.addAttribute("book", book);
         return "book/pay";
