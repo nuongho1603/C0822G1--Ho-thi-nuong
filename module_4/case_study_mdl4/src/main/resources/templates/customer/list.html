@@ -12,10 +12,18 @@
 <body>
 <table border="1" class="table table-success table-striped">
 
-    <form action="/customer/search" method="post">
+    <form th:action="@{/customer}">
         <input type="text" placeholder="Nhập tên.." aria-label="Search" name="name" size="15">
         <input type="text" placeholder="Nhập email.." aria-label="Search" name="email" size="20">
-        <input type="text" placeholder="Nhập loại khách.." aria-label="Search" name="customerType" size="20"> >
+
+        <select  class="form-control"  placeholder="Nhập loại khách.." name="customerType" >
+            <option th:text="${''}" ></option>
+            <option th:each="customer:${customerTypes}"
+                    th:value="${customer.id}"
+                    th:text="${customer.name}">
+            </option>
+        </select>
+<!--        <input type="text" placeholder="Nhập loại khách.." aria-label="Search" name="customerType" size="20"> >-->
         <button class="btn btn-outline-success" type="submit">Search</button>
 
     </form>

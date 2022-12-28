@@ -29,11 +29,17 @@ public class CustomerController {
 
 
     @RequestMapping("")
-    public String show(Model model, @RequestParam(defaultValue = "") String name, @RequestParam(defaultValue = "") String email, @RequestParam(defaultValue = "") String customerType, @PageableDefault(size = 4) Pageable pageable) {
+    public String show(Model model, @RequestParam(defaultValue = "") String name, @RequestParam(defaultValue = "") String customerType, @RequestParam(defaultValue = "") String email, @PageableDefault(size = 4) Pageable pageable) {
 
-        Page<Customer> customerList = iCustomerService.searchName(name, email, customerType, pageable);
-        model.addAttribute("customerList", customerList);
+        Page<Customer> customerPage = iCustomerService.searchName(name, customerType, email, pageable);
+        List<CustomerType> customerTypes = iCustomerTypeService.findAll();
+
+        model.addAttribute("customerList", customerPage);
+        model.addAttribute("customerTypes", customerTypes);
+
+        model.addAttribute("name", name);
         model.addAttribute("customerType", customerType);
+        model.addAttribute("email", email);
         return "/customer/list";
     }
 
@@ -64,20 +70,20 @@ public class CustomerController {
         return "/customer/create";
     }
 
-    @PostMapping("/search")
-    public String search(Model model, @RequestParam(value = "searchName", defaultValue = "") String name, @RequestParam(value = "searchEmail", defaultValue = "") String email, String customerType, @PageableDefault(size = 4) Pageable pageable, RedirectAttributes redirectAttributes) {
-        Page<Customer> customers = iCustomerService.searchName(name, email, customerType, pageable);
-        model.addAttribute("customerList", customers);
-        model.addAttribute("name", name);
-        model.addAttribute("email", email);
-        model.addAttribute("customerType", customerType);
-        return "redirect:/customer";
-    }
+//    @PostMapping("/search")
+//    public String search(Model model, @RequestParam(value = "searchName", defaultValue = "") String name, @RequestParam(value = "searchEmail", defaultValue = "") String email, String customerType, @PageableDefault(size = 4) Pageable pageable, RedirectAttributes redirectAttributes) {
+//        Page<Customer> customers = iCustomerService.searchName(name, email, customerType, pageable);
+//        model.addAttribute("customerList", customers);
+//        model.addAttribute("name", name);
+//        model.addAttribute("email", email);
+//        model.addAttribute("customerType", customerType);
+//        return "redirect:/customer";
+//    }
 
     @PostMapping("/delete")
-    public String delete(int deleteId,RedirectAttributes redirectAttributes){
+    public String delete(int deleteId, RedirectAttributes redirectAttributes) {
         iCustomerService.remove(deleteId);
-        redirectAttributes.addFlashAttribute("mess","Xóa thành công!");
+        redirectAttributes.addFlashAttribute("mess", "Xóa thành công!");
         return "redirect:/customer";
     }
 }
