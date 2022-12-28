@@ -57,7 +57,10 @@
             </a>
         </td>
         <td>
-            <button type="button" class="btn btn-outline-warning">Delete</button>
+            <a th:attr="onclick=|deleteInfo('${customer.id}','${customer.name}')|"
+               class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                Delete
+            </a>
         </td>
     </tr>
     </tbody>
@@ -75,5 +78,35 @@
         Next
     </a>
 </div>
+
+<!--modal delete-->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form th:action="@{/customer/delete}" th:method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input name="deleteId" hidden id="deleteId">
+                    <span>Are you want to delete </span>
+                    <span style="color: darkred" id="deleteName"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
+
+<script>
+    function deleteInfo(id,name){
+        document.getElementById("deleteId").value=id;
+        document.getElementById("deleteName").innerText=name;
+    }
+</script>
 </html>

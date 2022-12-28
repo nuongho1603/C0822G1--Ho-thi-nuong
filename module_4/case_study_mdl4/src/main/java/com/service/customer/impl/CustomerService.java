@@ -36,6 +36,11 @@ public class CustomerService implements ICustomerService {
     public Page<Customer> searchName(String name, String email, String customerType, Pageable pageable) {
         return iCustomerRepository.searchName(name,email,customerType,pageable);
     }
+
+    @Override
+    public void remove(int id) {
+        iCustomerRepository.deleteById(id);
+    }
 //    public Page<Customer> searchName(String name, String email,  Pageable pageable) {
 //        return iCustomerRepository.searchName(name,email,pageable);
 //    }

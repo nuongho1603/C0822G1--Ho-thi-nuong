@@ -73,4 +73,11 @@ public class CustomerController {
         model.addAttribute("customerType", customerType);
         return "redirect:/customer";
     }
+
+    @PostMapping("/delete")
+    public String delete(int deleteId,RedirectAttributes redirectAttributes){
+        iCustomerService.remove(deleteId);
+        redirectAttributes.addFlashAttribute("mess","Xóa thành công!");
+        return "redirect:/customer";
+    }
 }
