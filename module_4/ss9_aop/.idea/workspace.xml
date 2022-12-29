@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c83b973f-4f2b-49d6-8e25-06d212d06127" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../s11_web_service/exercise/src/main/java/com/controller/BlogRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../s11_web_service/exercise/src/main/java/com/model/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../s11_web_service/exercise/src/main/java/com/model/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../s11_web_service/exercise/src/main/java/com/repository/IBlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../s11_web_service/exercise/src/main/java/com/repository/ICategoryRepositpry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../s11_web_service/exercise/src/main/java/com/service/IBlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../s11_web_service/exercise/src/main/java/com/service/ICategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../s11_web_service/exercise/src/main/java/com/service/impl/BlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../s11_web_service/exercise/src/main/java/com/service/impl/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_mdl4/src/main/resources/templates/facility/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_mdl4/src/main/resources/templates/facility/list.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2JZpnJSscQFuQWRjYrH4GcwYImt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ss10_session" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c83b973f-4f2b-49d6-8e25-06d212d06127" name="Changes" comment="" />
+      <created>1672295625165</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672295625165</updated>
+      <workItem from="1672295626409" duration="37000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

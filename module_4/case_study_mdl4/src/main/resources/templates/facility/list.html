@@ -11,60 +11,263 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<table border="1"class="table table-success table-striped">
-    <form action="/facility/search" method="post">
-        <input type="text" placeholder="Search" aria-label="Search" name="search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-        >
+<!--<table border="1"class="table table-success table-striped">-->
+<!--    <form action="/facility/search" method="post">-->
+<!--        <input type="text" placeholder="Search" aria-label="Search" name="search">-->
+<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--        >-->
+<!--    </form>-->
+
+<!--    <p style="color: cadetblue;text-align: center;font-size: 15px" th:text="${mess}"></p>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>#</th>-->
+<!--        <th>Name</th>-->
+<!--        <th>Area</th>-->
+<!--        <th>Cost</th>-->
+<!--        <th>Max People</th>-->
+<!--        <th>Standard Room</th>-->
+<!--        <th>Description Other Convenience</th>-->
+<!--        <th>Pool Area</th>-->
+<!--        <th>Number Of Floors</th>-->
+<!--        <th>Facility Free</th>-->
+<!--        <th>Rent Type</th>-->
+<!--        <th>Facility Type</th>-->
+
+<!--        <th>-->
+<!--            <a th:href="@{/facility/create}">-->
+<!--                <button class="btn btn-outline-success" type="submit"> + </button>-->
+<!--            </a>-->
+<!--        </th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="facility,status : ${facilityList}">-->
+<!--        <td th:text="${status.count }" class="table-primary"></td>-->
+<!--        <td th:text="${facility.name}"  class="table-success"></td>-->
+<!--        <td th:text="${facility.area}" class="table-secondary"></td>-->
+<!--        <td th:text="${facility.cost}" class="table-warning"></td>-->
+<!--        <td th:text="${facility.maxPeople}" class="table-info"></td>-->
+<!--        <td th:text="${facility.standardRoom}" class="table-dark"></td>-->
+<!--        <td th:text="${facility.descriptionOtherConvenience}" class="table-secondary"></td>-->
+<!--        <td th:text="${facility.poolArea}" class="table-success"></td>-->
+<!--        <td th:text="${facility.numberOfFloors}" class="table-info"></td>-->
+<!--        <td th:text="${facility.facilityFree}" class="table-info"></td>-->
+<!--        <td th:text="${facility.rentType.name}" class="table-info"></td>-->
+<!--        <td th:text="${facility.facilityType.name}" class="table-info"></td>-->
+<!--        <td>-->
+<!--            <a th:href="@{/facility/edit/__${facility.id}__}">-->
+<!--                <button type="button" class="btn btn-outline-success">Edit</button>-->
+<!--            </a>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <button type="button" class="btn btn-outline-warning">Delete</button>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+
+<!--<div class="row">-->
+<!--    <div class="container-fluid">-->
+<!--        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding: 0;line-height: 50px">-->
+<!--            <div class="container-fluid" style="background-color:#218c74">-->
+<!--                <a class="navbar-brand a" th:href="@{/}" style="margin-left: 100px;color: white">Home</a>-->
+<!--                <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link active a" aria-current="page" href="/furama_web?action=showCutomer"-->
+<!--                               style="margin-left: 60px;color: white">Employee</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link a" th:href="@{/customer}"-->
+<!--                               style="color: white;margin-left: 60px">Customer</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link a"-->
+<!--                               th:href="@{/facility}"-->
+<!--                               style="color: white;margin-left: 60px">Service</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link disabled a" style="color: white;margin-left: 60px">Contract</a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <form class="d-flex" th:action="@{/facility}" method="get">-->
+<!--                        <input class="form-control me-2" type="search" placeholder="Tên" aria-label="Search" name="name"  >-->
+<!--                        <select  class="form-control"  placeholder="" name="facilityType" >-->
+<!--                            <option th:text="${'&#45;&#45;Loại dịch vụ&#45;&#45;'}" ></option>-->
+<!--                            <option th:each="facilityType:${facilityTypeList}"-->
+<!--                                    th:value="${facilityType.id}"-->
+<!--                                    th:text="${facilityType.name}">-->
+<!--                            </option>-->
+<!--                        </select>-->
+<!--                        <button class="btn btn-primary" type="submit">Search</button>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </nav>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="col-sm-12" style="background-color:gainsboro;height: 70px"><h1
+        style="text-align: center;line-height: 70px ;color: black ">THÊM MỚI</h1></div>
+<div style="margin:30px">
+    <p><a th:href="@{/facility}" class="btn btn-primary">Danh sách</a></p>
+    <form th:action="@{/facility/create}" th:object="${facility}" method="post">
+        <input type="hidden" th:field="*{id}">
+
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label" th:for="facilityType">Loại dịch vụ:</label>
+            <div class="col-sm-6">
+                <select th:field="*{facilityType}" id="mySelect" onchange="myFunction()" class="form-control" required placeholder="">
+                    <option value="" selected>--Loại dịch vụ--</option>
+                    <option th:each="facilityType:${facilityTypeList}"
+                            th:value="${facilityType.id}"
+                            th:text="${facilityType.name}">
+                    </option>
+                </select>
+                <p th:errors="*{rentType}" class="text-danger"></p>
+            </div>
+        </div>
+
+        <div class="form-group row" id="name">
+            <label class="col-sm-3 col-form-label" th:for="name">Tên dịch vụ :</label>
+            <div class="col-sm-6">
+                <input type="text" th:field="*{name}" class="form-control" placeholder=""  >
+                <p th:errors="*{name}" class="text-danger"></p>
+            </div>
+        </div>
+        <div class="form-group row" id="area">
+            <label class="col-sm-3 col-form-label" th:for="area">Diện tích sử dụng:</label>
+            <div class="col-sm-6">
+                <input type="text" th:field="*{area}" class="form-control" placeholder=""  >
+                <p th:errors="*{area}" class="text-danger"></p>
+            </div>
+        </div>
+        <div class="form-group row" id="cost">
+            <label class="col-sm-3 col-form-label" th:for="cost">Chi phí thuê:</label>
+            <div class="col-sm-6">
+                <input type="text" th:field="*{cost}" class="form-control" placeholder="" >
+                <p th:errors="*{cost}" class="text-danger"></p>
+            </div>
+        </div>
+
+        <div class="form-group row" id="maxPeople">
+            <label class="col-sm-3 col-form-label" th:for="maxPeople">Số lượng người tố đa:</label>
+            <div class="col-sm-6">
+                <input type="text" th:field="*{maxPeople}" class="form-control" placeholder="" >
+                <p th:errors="*{maxPeople}" class="text-danger"></p>
+            </div>
+        </div>
+
+        <div class="form-group row" id="standardRoom">
+            <label class="col-sm-3 col-form-label" th:for="standardRoom">Tiêu chuẩn phòng:</label>
+            <div class="col-sm-6">
+                <input type="text" th:field="*{standardRoom}" class="form-control" placeholder="" >
+                <p th:errors="*{standardRoom}" class="text-danger"></p>
+            </div>
+        </div>
+
+        <div class="form-group row" id="desciption">
+            <label class="col-sm-3 col-form-label" th:for="desciption">Mô tả tiện nghi khác:</label>
+            <div class="col-sm-6">
+                <input type="text" th:field="*{desciption}" class="form-control" placeholder="" >
+                <p th:errors="*{desciption}" class="text-danger"></p>
+            </div>
+        </div>
+
+        <div class="form-group row" id="poolArea">
+            <label class="col-sm-3 col-form-label" th:for="poolArea">Diện tích hồ bơi:</label>
+            <div class="col-sm-6">
+                <input type="text" th:field="*{poolArea}" class="form-control" placeholder="" >
+                <p th:errors="*{poolArea}" class="text-danger"></p>
+            </div>
+        </div>
+
+        <div class="form-group row" id="numberOfFloors">
+            <label class="col-sm-3 col-form-label" th:for="numberOfFloors">Số tầng:</label>
+            <div class="col-sm-6">
+                <input type="text" th:field="*{numberOfFloors}" class="form-control" placeholder="" >
+                <p th:errors="*{numberOfFloors}" class="text-danger"></p>
+            </div>
+        </div>
+
+        <div class="form-group row" id="facilityFree">
+            <label class="col-sm-3 col-form-label" th:for="facilityFree">Dịch vụ miễn phí đi kèm:</label>
+            <div class="col-sm-6">
+                <input type="text" th:field="*{facilityFree}" class="form-control" placeholder="" >
+                <p th:errors="*{facilityFree}" class="text-danger"></p>
+            </div>
+        </div>
+
+
+        <div class="form-group row" id="rentType">
+            <label class="col-sm-3 col-form-label" th:for="rentType">Kiểu thuê:</label>
+            <div class="col-sm-6">
+                <select th:field="*{rentType}" class="form-control" required placeholder="">
+                    <option th:each="rentType:${rentTypeList}"
+                            th:value="${rentType.id}"
+                            th:text="${rentType.name}">
+                    </option>
+                </select>
+                <p th:errors="*{rentType}" class="text-danger"></p>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-sm-9 offset-sm-3">
+                <input type="submit" class="btn btn-primary" value="Save">
+                <input type="reset" class="btn btn-secondary" value="Reset">
+            </div>
+        </div>
     </form>
+</div>
 
-    <p style="color: cadetblue;text-align: center;font-size: 15px" th:text="${mess}"></p>
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Area</th>
-        <th>Cost</th>
-        <th>Max People</th>
-        <th>Standard Room</th>
-        <th>Description Other Convenience</th>
-        <th>Pool Area</th>
-        <th>Number Of Floors</th>
-        <th>Facility Free</th>
-        <th>Rent Type</th>
-        <th>Facility Type</th>
+<!--<div th:insert="~{layout::footer}"></div>-->
 
-        <th>
-            <a th:href="@{/facility/create}">
-                <button class="btn btn-outline-success" type="submit"> + </button>
-            </a>
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="facility,status : ${facilityList}">
-        <td th:text="${status.count }" class="table-primary"></td>
-        <td th:text="${facility.name}"  class="table-success"></td>
-        <td th:text="${facility.area}" class="table-secondary"></td>
-        <td th:text="${facility.cost}" class="table-warning"></td>
-        <td th:text="${facility.maxPeople}" class="table-info"></td>
-        <td th:text="${facility.standardRoom}" class="table-dark"></td>
-        <td th:text="${facility.descriptionOtherConvenience}" class="table-secondary"></td>
-        <td th:text="${facility.poolArea}" class="table-success"></td>
-        <td th:text="${facility.numberOfFloors}" class="table-info"></td>
-        <td th:text="${facility.facilityFree}" class="table-info"></td>
-        <td th:text="${facility.rentType.name}" class="table-info"></td>
-        <td th:text="${facility.facilityType.name}" class="table-info"></td>
-        <td>
-            <a th:href="@{/facility/edit/__${facility.id}__}">
-                <button type="button" class="btn btn-outline-success">Edit</button>
-            </a>
-        </td>
-        <td>
-            <button type="button" class="btn btn-outline-warning">Delete</button>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<script>
+    function myFunction() {
+        var x = document.getElementById("mySelect").value;
+        switch (x){
+            case '1':
+                document.getElementById("name").style.display = "";
+                document.getElementById("area").style.display = "";
+                document.getElementById("cost").style.display = "";
+                document.getElementById("maxPeople").style.display = "";
+                document.getElementById("standardRoom").style.display = "";
+                document.getElementById("desciption").style.display = "";
+                document.getElementById("poolArea").style.display = "";
+                document.getElementById("numberOfFloors").style.display = "";
+                document.getElementById("facilityFree").style.display = "none";
+                document.getElementById("rentType").style.display = "";
+                break;
+
+            case '2':
+                document.getElementById("name").style.display = "";
+                document.getElementById("area").style.display = "";
+                document.getElementById("cost").style.display = "";
+                document.getElementById("maxPeople").style.display = "";
+                document.getElementById("standardRoom").style.display = "";
+                document.getElementById("desciption").style.display = "";
+                document.getElementById("poolArea").style.display = "none";
+                document.getElementById("numberOfFloors").style.display = "";
+                document.getElementById("facilityFree").style.display = "none";
+                document.getElementById("rentType").style.display = "";
+                break;
+            case '3':
+                document.getElementById("name").style.display = "";
+                document.getElementById("area").style.display = "";
+                document.getElementById("cost").style.display = "";
+                document.getElementById("maxPeople").style.display = "";
+                document.getElementById("standardRoom").style.display = "";
+                document.getElementById("desciption").style.display = "";
+                document.getElementById("poolArea").style.display = "none";
+                document.getElementById("numberOfFloors").style.display = "none";
+                document.getElementById("facilityFree").style.display = "";
+                document.getElementById("rentType").style.display = "";
+                break;
+        }
+    }
+</script>
 </body>
 </html>
