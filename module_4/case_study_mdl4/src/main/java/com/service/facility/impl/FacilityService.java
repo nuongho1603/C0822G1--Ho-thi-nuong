@@ -4,6 +4,8 @@ import com.model.facility.Facility;
 import com.repository.IFacilityRepository;
 import com.service.facility.IFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,5 +29,15 @@ public class FacilityService implements IFacilityService {
     @Override
     public Optional<Facility> findById(int id) {
         return iFacilityRepository.findById(id);
+    }
+
+    @Override
+    public void remove(int id) {
+        iFacilityRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Facility> searchName(String name, String facilityType, Pageable pageable) {
+        return iFacilityRepository.searchName(name,facilityType,pageable);
     }
 }

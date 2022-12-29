@@ -13,19 +13,20 @@
 <table border="1" class="table table-success table-striped">
 
     <form th:action="@{/customer}">
-        <input type="text" placeholder="Nhập tên.." aria-label="Search" name="name" size="15">
-        <input type="text" placeholder="Nhập email.." aria-label="Search" name="email" size="20">
+        <div class="container d-flex">
+            <input type="text" placeholder="Nhập tên.." aria-label="Search" name="name" size="15">
+            <input type="text" placeholder="Nhập email.." aria-label="Search" name="email" size="20">
 
-        <select  class="form-control"  placeholder="Nhập loại khách.." name="customerType" >
-            <option th:text="${''}" ></option>
-            <option th:each="customer:${customerTypes}"
-                    th:value="${customer.id}"
-                    th:text="${customer.name}">
-            </option>
-        </select>
-<!--        <input type="text" placeholder="Nhập loại khách.." aria-label="Search" name="customerType" size="20"> >-->
-        <button class="btn btn-outline-success" type="submit">Search</button>
-
+            <select class="form-control" placeholder="Nhập loại khách.." name="customerType" style="width: 200px">
+                <option th:text="${''}" ></option>
+                <option th:each="customer:${customerTypes}"
+                        th:value="${customer.id}"
+                        th:text="${customer.name}">
+                </option>
+            </select>
+            <!--        <input type="text" placeholder="Nhập loại khách.." aria-label="Search" name="customerType" size="20"> >-->
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
     </form>
 
     <p style="color: cadetblue;text-align: center;font-size: 15px" th:text="${mess}"></p>
@@ -40,6 +41,7 @@
         <th>Email</th>
         <th>Address</th>
         <th>Customer Type</th>
+        <th></th>
         <th>
             <a th:href="@{/customer/create}">
                 <button class="btn btn-outline-success" type="submit"> +</button>
@@ -112,9 +114,9 @@
 </body>
 
 <script>
-    function deleteInfo(id,name){
-        document.getElementById("deleteId").value=id;
-        document.getElementById("deleteName").innerText=name;
+    function deleteInfo(id, name) {
+        document.getElementById("deleteId").value = id;
+        document.getElementById("deleteName").innerText = name;
     }
 </script>
 </html>

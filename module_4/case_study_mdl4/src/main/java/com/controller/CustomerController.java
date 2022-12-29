@@ -29,7 +29,10 @@ public class CustomerController {
 
 
     @RequestMapping("")
-    public String show(Model model, @RequestParam(defaultValue = "") String name, @RequestParam(defaultValue = "") String customerType, @RequestParam(defaultValue = "") String email, @PageableDefault(size = 4) Pageable pageable) {
+    public String show(Model model, @RequestParam(defaultValue = "") String name,
+                       @RequestParam(defaultValue = "") String customerType,
+                       @RequestParam(defaultValue = "") String email,
+                       @PageableDefault(size = 4) Pageable pageable) {
 
         Page<Customer> customerPage = iCustomerService.searchName(name, customerType, email, pageable);
         List<CustomerType> customerTypes = iCustomerTypeService.findAll();
@@ -37,9 +40,7 @@ public class CustomerController {
         model.addAttribute("customerList", customerPage);
         model.addAttribute("customerTypes", customerTypes);
 
-        model.addAttribute("name", name);
-        model.addAttribute("customerType", customerType);
-        model.addAttribute("email", email);
+
         return "/customer/list";
     }
 

@@ -58,8 +58,7 @@ public class BlogRestController {
     @GetMapping("blog/{id}")
     public ResponseEntity<?> getListIdCategory(@PathVariable("id") int id) {
        List<Blog> blog = iBlogService.findBlogByCategory(id);
-
-        if (blog == null) {
+       if (blog == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(blog, HttpStatus.OK);
