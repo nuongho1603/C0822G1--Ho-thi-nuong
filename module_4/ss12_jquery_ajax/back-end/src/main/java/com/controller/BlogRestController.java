@@ -14,6 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/blogs")
+@CrossOrigin("*")
 public class BlogRestController {
 
     @Autowired
@@ -25,7 +26,7 @@ public class BlogRestController {
     @GetMapping("")
     public ResponseEntity<List<Blog>> getListBlog() {
         List<Blog> blogList = iBlogService.findAll();
-00
+
         if (blogList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
@@ -55,12 +56,20 @@ public class BlogRestController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("blog/{id}")
-    public ResponseEntity<?> getListIdCategory(@PathVariable("id") int id) {
-       List<Blog> blog = iBlogService.findBlogByCategory(id);
+    @GetMapping("blog/{title}")
+    public ResponseEntity<?> getListTitle(@PathVariable("title") String title) {
+       List<Blog> blog = iBlogService.findBlogByTitle(title);
        if (blog == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(blog, HttpStatus.OK);
     }
+//    @GetMapping("blog")
+//    public ResponseEntity<?> getListTitle(@RequestParam("title") String title, @RequestParam("id") int id) {
+//       List<Blog> blog = iBlogService.findBlogByTitle(title,id);
+//       if (blog == null) {
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//        }
+//        return new ResponseEntity<>(blog, HttpStatus.OK);
+//    }
 }
