@@ -25,7 +25,6 @@ public class BlogRestController {
     @GetMapping("")
     public ResponseEntity<List<Blog>> getListBlog() {
         List<Blog> blogList = iBlogService.findAll();
-00
         if (blogList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
@@ -59,7 +58,7 @@ public class BlogRestController {
     public ResponseEntity<?> getListIdCategory(@PathVariable("id") int id) {
        List<Blog> blog = iBlogService.findBlogByCategory(id);
        if (blog == null) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(blog, HttpStatus.OK);
     }
