@@ -11,6 +11,9 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<div th:insert="~{layout::header}"></div>
+
+<center>
 <table border="1"class="table table-success table-striped">
     <form th:action="@{/facility}">
         <div class="container d-flex">
@@ -36,6 +39,7 @@
         <th>Facility Free</th>
         <th>Rent Type</th>
         <th>Facility Type</th>
+        <th></th>
 
         <th>
             <a th:href="@{/facility/create}">
@@ -108,8 +112,8 @@
         </form>
     </div>
 </div>
-</body>
-
+</center>
+<div th:insert="~{layout::footer}"></div>
 <script>
     function deleteInfo(id, name) {
         document.getElementById("deleteId").value = id;

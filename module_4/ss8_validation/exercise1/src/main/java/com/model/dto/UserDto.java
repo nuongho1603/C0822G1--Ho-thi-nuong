@@ -53,7 +53,7 @@ public class UserDto implements Validator {
     }
 
     public String getLastName() {
-        return last Name;
+        return lastName;
     }
 
     public void setLastName(String lastName) {

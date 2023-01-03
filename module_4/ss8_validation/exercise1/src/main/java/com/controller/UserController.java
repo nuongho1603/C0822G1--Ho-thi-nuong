@@ -46,7 +46,7 @@ public class UserController {
         User user = new User();
         BeanUtils.copyProperties(userDto,user);
         iUserRepository.save(user);
-        model.addAttribute("mess", " Đăng ký thành công! ");
+        model.addAttribute("mess"," Đăng ký thành công! ");
         return "result";
     }
 }

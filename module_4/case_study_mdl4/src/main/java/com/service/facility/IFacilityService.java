@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public interface IFacilityService {
     List<Facility> findAll();
-    void save(Facility facility);
+    boolean save(Facility facility);
     Optional<Facility> findById(int id);
     void remove(int id);
 

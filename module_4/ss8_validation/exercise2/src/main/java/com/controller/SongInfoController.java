@@ -70,7 +70,6 @@ public class SongInfoController {
         if (bindingResult.hasErrors()) {
             return "edit";
         }
-
         SongInfo songInfo = new SongInfo();
         BeanUtils.copyProperties(songDto, songInfo);
         iSongInfoService.save(songInfo);

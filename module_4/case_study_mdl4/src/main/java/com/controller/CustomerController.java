@@ -12,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -32,54 +34,59 @@ public class CustomerController {
     public String show(Model model, @RequestParam(defaultValue = "") String name,
                        @RequestParam(defaultValue = "") String customerType,
                        @RequestParam(defaultValue = "") String email,
-                       @PageableDefault(size = 4) Pageable pageable) {
+                       @PageableDefault(size = 5) Pageable pageable) {
 
         Page<Customer> customerPage = iCustomerService.searchName(name, customerType, email, pageable);
         List<CustomerType> customerTypes = iCustomerTypeService.findAll();
 
         model.addAttribute("customerList", customerPage);
         model.addAttribute("customerTypes", customerTypes);
-
-
-        return "/customer/list";
+        return "customer/list";
     }
 
 
     @GetMapping("/edit/{id}")
     public String showEdit(Model model, @PathVariable("id") int id) {
+        Customer customer = iCustomerService.findById(id);
+        CustomerDto customerDto = new CustomerDto();
+        BeanUtils.copyProperties(customer, customerDto);
         List<CustomerType> customerTypes = iCustomerTypeService.findAll();
+        model.addAttribute("customerDto", customerDto);
         model.addAttribute("customerTypes", customerTypes);
-        Optional<Customer> customer = iCustomerService.findById(id);
-        model.addAttribute("customer", customer);
-        return "/customer/edit";
+        return "customer/edit";
     }
 
     @PostMapping("/save")
-    public String save(Model model, @ModelAttribute("customer") Customer customer, RedirectAttributes redirectAttributes) {
+    public String save(Model model, @Validated @ModelAttribute("customerDto") CustomerDto customerDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+//        iCustomerService.save(customer);
+//        List<Customer> customerList = iCustomerService.findAll();
+//        model.addAttribute("customerList", customerList);
+//        redirectAttributes.addFlashAttribute("mess", "Bạn đã thao tác thành công! ");
+        new CustomerDto().validate(customerDto, bindingResult);
+        if (bindingResult.hasErrors()) {
+            List<CustomerType> customerTypes = iCustomerTypeService.findAll();
+            model.addAttribute("customerTypes",customerTypes);
+            return "customer/edit";
+        }
+        Customer customer = new Customer();
+        BeanUtils.copyProperties(customerDto, customer);
         iCustomerService.save(customer);
-        List<Customer> customerList = iCustomerService.findAll();
-        model.addAttribute("customerList", customerList);
-        model.addAttribute("mess", "Bạn đã thao tác thành công! ");
+
+        redirectAttributes.addFlashAttribute("mess", "Bạn đã thao tác thành công! ");
         return "redirect:/customer";
     }
 
     @GetMapping("/create")
     public String showCreate(Model model) {
-        List<CustomerType> customerTypes = iCustomerTypeService.findAll();
-        model.addAttribute("customer", new Customer());
-        model.addAttribute("customerTypes", customerTypes);
-        return "/customer/create";
-    }
+//        List<CustomerType> customerTypes = iCustomerTypeService.findAll();
+//        model.addAttribute("customer", new Customer());
+//        model.addAttribute("customerTypes", customerTypes);
 
-//    @PostMapping("/search")
-//    public String search(Model model, @RequestParam(value = "searchName", defaultValue = "") String name, @RequestParam(value = "searchEmail", defaultValue = "") String email, String customerType, @PageableDefault(size = 4) Pageable pageable, RedirectAttributes redirectAttributes) {
-//        Page<Customer> customers = iCustomerService.searchName(name, email, customerType, pageable);
-//        model.addAttribute("customerList", customers);
-//        model.addAttribute("name", name);
-//        model.addAttribute("email", email);
-//        model.addAttribute("customerType", customerType);
-//        return "redirect:/customer";
-//    }
+        model.addAttribute("customerDto", new CustomerDto());
+        List<CustomerType> customerTypes = iCustomerTypeService.findAll();
+        model.addAttribute("customerTypes", customerTypes);
+        return "customer/create";
+    }
 
     @PostMapping("/delete")
     public String delete(int deleteId, RedirectAttributes redirectAttributes) {

@@ -12,7 +12,7 @@ public class Customer {
     private String name;
     private String dateOfBirth;
     private String gender;
- @Column(unique = true)
+    @Column(unique = true)
     private String idCard;
     @Column(unique = true)
     private String phoneNumber;

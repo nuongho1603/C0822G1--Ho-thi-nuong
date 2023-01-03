@@ -23,13 +23,19 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public void save(Customer customer) {
+    public boolean save(Customer customer) {
+        for (int i = 0; i <findAll().size() ; i++) {
+         if (customer.getIdCard().equals(findAll().get(i).getIdCard())) {
+             return false;
+         }
+        }
         iCustomerRepository.save(customer);
+        return true;
     }
 
     @Override
-    public Optional<Customer> findById(int id) {
-        return iCustomerRepository.findById(id);
+    public Customer findById(int id) {
+        return iCustomerRepository.getReferenceById(id);
     }
 
     @Override

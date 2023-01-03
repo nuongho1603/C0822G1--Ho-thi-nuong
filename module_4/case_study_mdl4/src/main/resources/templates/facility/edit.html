@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
+<div th:insert="~{layout::header}"></div>
+
 <form action="/facility/save" method="post" th:object="${facility}" th:charset="utf-8">
     <input type="hidden" th:field="*{id}">
     <label th:for="name"> Name: </label>
@@ -45,5 +47,7 @@
     </select>
     <input type="submit" value="Save !">
 </form>
+
+<div th:insert="~{layout::footer}"></div>
 </body>
 </html>

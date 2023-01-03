@@ -33,7 +33,7 @@ public class FacilityController {
     @RequestMapping("")
     public String show(Model model, @RequestParam(defaultValue = "") String name,
                        @RequestParam(defaultValue = "") String facilityType,
-                       @PageableDefault(size = 3) Pageable pageable) {
+                       @PageableDefault(size = 5) Pageable pageable) {
         Page<Facility> facilityPage = iFacilityService.searchName(name, facilityType, pageable);
         List<FacilityType> facilityTypes = iFacilityTypeService.findAll();
         List<RentType> rentTypes = iRentTypeService.findAll();
@@ -57,8 +57,12 @@ public class FacilityController {
 
     @PostMapping("/save")
     public String save(Model model, @ModelAttribute("facility") Facility facility, RedirectAttributes redirectAttributes) {
-        iFacilityService.save(facility);
-        redirectAttributes.addFlashAttribute("mess", "Bạn đã thao tác thành công! ");
+       boolean check = iFacilityService.save(facility);
+       String mess = "Bạn đã thao tác thành công!";
+       if(!check){
+           mess="Thao tac that bai!";
+       }
+       redirectAttributes.addFlashAttribute("mess", mess);
         return "redirect:/facility";
     }
 

@@ -10,8 +10,9 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<table border="1" class="table table-success table-striped">
+<div th:insert="~{layout::header}" ></div>
 
+<table border="1" class="table table-success table-striped" >
     <form th:action="@{/customer}">
         <div class="container d-flex">
             <input type="text" placeholder="Nhập tên.." aria-label="Search" name="name" size="15">
@@ -112,6 +113,8 @@
     </div>
 </div>
 </body>
+
+<div th:insert="~{layout::footer}"></div>
 
 <script>
     function deleteInfo(id, name) {

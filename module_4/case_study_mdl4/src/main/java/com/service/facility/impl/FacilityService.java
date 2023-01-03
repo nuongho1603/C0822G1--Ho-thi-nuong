@@ -22,8 +22,14 @@ public class FacilityService implements IFacilityService {
     }
 
     @Override
-    public void save(Facility facility) {
+    public boolean save(Facility facility) {
+        for (int i = 0; i <findAll().size() ; i++){
+            if(facility.getName().equals(findAll().get(i).getName())){
+                return false;
+            }
+        }
         iFacilityRepository.save(facility);
+        return true;
     }
 
     @Override

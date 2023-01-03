@@ -1,6 +1,7 @@
 package com.model.dto;
 
 import com.model.customer.Customer;
+import com.model.customer.CustomerType;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import org.springframework.validation.annotation.Validated;
@@ -21,9 +22,10 @@ public class CustomerDto implements Validator {
     private String idCard;
     @Pattern(regexp = "(090|091|(84)+)[0-9]{7}",message = "Chưa đúng định dạng ạ! ")
     private String phoneNumber;
-    @Pattern(regexp = "[a-zA-Z]+\\\\w+@\\\\w+(\\\\.\\\\w+)+",message = "Vui lòng gõ đúng định dạng!")
+    @Pattern(regexp = "[\\w]+[@][\\w]+.[\\w]+",message = "Vui lòng gõ đúng định dạng!")
     private String email;
     private String address;
+    private CustomerType customerType;
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -104,5 +106,11 @@ public class CustomerDto implements Validator {
         this.address = address;
     }
 
-    
+    public CustomerType getCustomerType() {
+        return customerType;
+    }
+
+    public void setCustomerType(CustomerType customerType) {
+        this.customerType = customerType;
+    }
 }
