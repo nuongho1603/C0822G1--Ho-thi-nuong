@@ -58,10 +58,6 @@ public class CustomerController {
 
     @PostMapping("/save")
     public String save(Model model, @Validated @ModelAttribute("customerDto") CustomerDto customerDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-//        iCustomerService.save(customer);
-//        List<Customer> customerList = iCustomerService.findAll();
-//        model.addAttribute("customerList", customerList);
-//        redirectAttributes.addFlashAttribute("mess", "Bạn đã thao tác thành công! ");
         new CustomerDto().validate(customerDto, bindingResult);
         if (bindingResult.hasErrors()) {
             List<CustomerType> customerTypes = iCustomerTypeService.findAll();

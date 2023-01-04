@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public interface ICustomerService {
     List<Customer> findAll();
-    boolean save(Customer customer);
+    void save(Customer customer);
     Customer findById(int id);
 
     Page<Customer> searchName(String name, String customerType,String email, Pageable pageable);

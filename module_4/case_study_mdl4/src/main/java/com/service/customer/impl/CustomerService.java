@@ -23,14 +23,14 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public boolean save(Customer customer) {
-        for (int i = 0; i <findAll().size() ; i++) {
-         if (customer.getIdCard().equals(findAll().get(i).getIdCard())) {
-             return false;
-         }
-        }
+    public void save(Customer customer) {
+//        for (int i = 0; i <findAll().size() ; i++) {
+//         if (customer.getIdCard().equals(findAll().get(i).getIdCard())) {
+//             return false;
+//         }
+//        }
         iCustomerRepository.save(customer);
-        return true;
+//        return true;
     }
 
     @Override
