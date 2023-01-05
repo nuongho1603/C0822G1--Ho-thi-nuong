@@ -10,8 +10,8 @@ public class EducationDegree {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @ManyToMany(mappedBy ="educationDegrees" )
-    private Set<Employee> employees = new HashSet<>();
+    @OneToMany(mappedBy ="educationDegree" )
+    private Set<Employee> employees;
 
     public EducationDegree() {
     }

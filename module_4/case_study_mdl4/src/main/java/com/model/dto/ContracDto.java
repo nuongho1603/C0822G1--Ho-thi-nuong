@@ -1,33 +1,27 @@
-package com.model.contract;
+package com.model.dto;
 
-
+import com.model.contract.ContractDetail;
 import com.model.customer.Customer;
 import com.model.employee.Employee;
 import com.model.facility.Facility;
 
-import javax.persistence.*;
+import java.util.List;
 
-@Entity
-public class Contract {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ContracDto {
     private int id;
     private String startDate;
     private String endDate;
     private double deposit;
-    @ManyToOne
     private Customer customer;
-    //    @OneToMany(mappedBy = "contract")
-//    private Set<ContractDetail> contractDetail;
-    @ManyToOne
     private Facility facility;
-    @ManyToOne
     private Employee employee;
+    List<ContractDetail> contractDetails;
+    private double total;
 
-    public Contract() {
+    public ContracDto() {
     }
 
-    public Contract(int id, String startDate, String endDate, double deposit, Customer customer, Facility facility, Employee employee) {
+    public ContracDto(int id, String startDate, String endDate, double deposit, Customer customer, Facility facility, Employee employee, double total) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -35,8 +29,8 @@ public class Contract {
         this.customer = customer;
         this.facility = facility;
         this.employee = employee;
+        this.total = total;
     }
-
 
     public int getId() {
         return id;
@@ -70,6 +64,10 @@ public class Contract {
         this.deposit = deposit;
     }
 
+    public double getTotal() {
+        return total;
+    }
+
     public Customer getCustomer() {
         return customer;
     }
@@ -77,14 +75,6 @@ public class Contract {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-
-//    public Set<ContractDetail> getContractDetail() {
-//        return contractDetail;
-//    }
-//
-//    public void setContractDetail(Set<ContractDetail> contractDetail) {
-//        this.contractDetail = contractDetail;
-//    }
 
     public Facility getFacility() {
         return facility;
@@ -100,5 +90,17 @@ public class Contract {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    public List<ContractDetail> getContractDetails() {
+        return contractDetails;
+    }
+
+    public void setContractDetails(List<ContractDetail> contractDetails) {
+        this.contractDetails = contractDetails;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 }

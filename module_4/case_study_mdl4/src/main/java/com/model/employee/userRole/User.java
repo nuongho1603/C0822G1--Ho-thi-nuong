@@ -11,8 +11,8 @@ public class User {
     @Id
     private String userName;
     private String password;
-    @OneToOne(mappedBy = "user")
-    private Employee employee;
+//    @OneToOne(mappedBy = "user")
+//    private Employee employee;
 
     public User() {
     }

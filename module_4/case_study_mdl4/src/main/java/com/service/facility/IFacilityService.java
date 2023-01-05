@@ -16,4 +16,6 @@ public interface IFacilityService {
     void remove(int id);
 
     Page<Facility> searchName( String name, String facilityType, Pageable pageable);
+
+
 }

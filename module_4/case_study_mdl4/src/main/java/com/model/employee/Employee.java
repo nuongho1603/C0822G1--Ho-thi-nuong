@@ -20,18 +20,18 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "position_id",referencedColumnName = "id")
     private Position position;
-    @ManyToMany
+    @ManyToOne
 //    @JoinTable(name = "employee_education_degree",joinColumns ={@JoinColumn(name = "education_degree_id",referencedColumnName = "id")},inverseJoinColumns = {@JoinColumn(name = "education_degree_id")})
-   @JoinColumn(referencedColumnName = "id")
-    Set<EducationDegree> educationDegrees;
+   @JoinColumn(name = "education_degree_id",referencedColumnName = "id")
+    private EducationDegree educationDegree;
 //    private Set<EducationDegree> educationDegree;
     @ManyToOne
     @JoinColumn(name = "division_id",referencedColumnName = "id")
     private Division division;
-
-    @OneToOne
-//    @JoinColumn(name = "user_name",referencedColumnName = "userName")
-    private User user;
+//
+//    @OneToOne
+////    @JoinColumn(name = "user_name",referencedColumnName = "userName")
+//    private User user;
 
     public Employee() {
     }
@@ -108,12 +108,12 @@ public class Employee {
         this.position = position;
     }
 
-    public Set<EducationDegree> getEducationDegrees() {
-        return educationDegrees;
+    public EducationDegree getEducationDegree() {
+        return educationDegree;
     }
 
-    public void setEducationDegrees(Set<EducationDegree> educationDegrees) {
-        this.educationDegrees = educationDegrees;
+    public void setEducationDegree(EducationDegree educationDegree) {
+        this.educationDegree = educationDegree;
     }
 
     public Division getDivision() {
@@ -124,11 +124,11 @@ public class Employee {
         this.division = division;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 }

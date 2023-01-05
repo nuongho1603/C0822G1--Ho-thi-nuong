@@ -1,23 +1,60 @@
 package com.model.contract;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class ContractDetail {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
-
-    @OneToOne
+    private int quantity;
+    @ManyToOne
     private Contract contract;
+    @ManyToOne
+    private AttachFacility facilitySet;
 
-    @ManyToOne()
-    @JoinColumn(name ="attach_facility_id", referencedColumnName = "id")
-    private AttachFacility attachFacility;
+    public AttachFacility getFacilitySet() {
+        return facilitySet;
+    }
 
-    private Integer quantity;
+    public void setFacilitySet(AttachFacility facilitySet) {
+        this.facilitySet = facilitySet;
+    }
 
-    @Column(columnDefinition = "boolean default false")
-    private boolean isDeleted;
+    public ContractDetail(int quantity, Contract contract, AttachFacility facilitySet) {
+        this.quantity = quantity;
+        this.contract = contract;
+        this.facilitySet = facilitySet;
+    }
+
+    public ContractDetail() {
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Contract getContract() {
+        return contract;
+    }
+
+    public void setContract(Contract contract) {
+        this.contract = contract;
+    }
+
 }
