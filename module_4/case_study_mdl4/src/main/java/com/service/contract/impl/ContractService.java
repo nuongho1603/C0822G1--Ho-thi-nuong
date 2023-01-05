@@ -1,7 +1,8 @@
 package com.service.contract.impl;
 
 import com.model.contract.Contract;
-import com.model.dto.ContracDto;
+
+import com.model.dto.IContractDto;
 import com.repository.IContractRepository;
 import com.service.contract.IContractService;
 import org.springframework.beans.BeanUtils;
@@ -19,8 +20,8 @@ public class ContractService implements IContractService {
     @Autowired
     private IContractRepository iContractRepository;
 
-    @Override
-    public Page<ContracDto> showList(Pageable pageable) {
+//    @Override
+//    public Page<IContractDto> showList(Pageable pageable) {
 //        List<Contract> contractList = iContractRepository.findAll();
 //        List<ContracDto> contracDtos = new ArrayList<>();
 //        for (Contract con : contractList) {
@@ -30,11 +31,21 @@ public class ContractService implements IContractService {
 //          contracDtos.add(contracDto);
 //        }
 //        return new PageImpl<>(contracDtos);
+//        return iContractRepository.showList(pageable);
+//    }
+
+    @Override
+    public Page<IContractDto> showList(Pageable pageable) {
         return iContractRepository.showList(pageable);
     }
 
     @Override
     public List<Contract> findAll() {
         return iContractRepository.findAll();
+    }
+
+    @Override
+    public void add(Contract contract) {
+        iContractRepository.save(contract);
     }
 }

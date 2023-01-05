@@ -6,6 +6,7 @@ import com.repository.IContractRepository;
 import com.service.contract.IContractDetailService;
 import org.omg.CORBA.PRIVATE_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,4 +19,11 @@ public class ContractDetailService implements IContractDetailService {
     public List<ContractDetail> findAll() {
         return iContractDetailRepository.findAll();
     }
+
+    @Override
+    public void addContractDetail(ContractDetail contractDetail) {
+        iContractDetailRepository.save(contractDetail);
+    }
+
+
 }
