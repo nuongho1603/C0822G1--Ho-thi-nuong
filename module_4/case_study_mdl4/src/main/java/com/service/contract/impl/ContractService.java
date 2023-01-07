@@ -2,6 +2,7 @@ package com.service.contract.impl;
 
 import com.model.contract.Contract;
 
+import com.model.dto.IAttachFacilityDto;
 import com.model.dto.IContractDto;
 import com.repository.IContractRepository;
 import com.service.contract.IContractService;
@@ -48,4 +49,10 @@ public class ContractService implements IContractService {
     public void add(Contract contract) {
         iContractRepository.save(contract);
     }
+
+    @Override
+    public List<IAttachFacilityDto> listAttachFacility(int id) {
+        return iContractRepository.listAttachFacility(id);
+    }
+
 }

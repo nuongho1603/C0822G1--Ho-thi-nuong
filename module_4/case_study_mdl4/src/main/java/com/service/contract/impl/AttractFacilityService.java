@@ -16,4 +16,9 @@ public class AttractFacilityService implements IAttractFacilityService {
     public List<AttachFacility> findAll() {
         return iAttractFacilityRepository.findAll();
     }
+
+    @Override
+    public AttachFacility findById(int id) {
+        return iAttractFacilityRepository.findById(id).get();
+    }
 }

@@ -13,10 +13,13 @@
 </head>
 <body>
 <div th:insert="~{layout::header}"></div>
-<p th:text="${mess}" style="text-align: center; color: red; font-size: 25px"></p>
+<p th:text="${mess}" style="text-align: center; color: maroon; font-size: 15px"></p>
 <div style="margin-top:10px">
 
-    <button class="btn btn-outline-primary" role="button" data-bs-toggle="modal" data-bs-target="#exampleModal3">Thêm mới Contract</button>
+    <button class="btn btn-outline-primary" role="button" data-bs-toggle="modal" data-bs-target="#exampleModal3">Thêm
+        mới Contract
+    </button>
+    <!--    <button type="submit" th:action="@{contract/listed}" th:method="post">Danh sách customer in contract </button>-->
 
     <table class="table table-striped table-hover">
         <thead>
@@ -49,12 +52,11 @@
 
             </td>
             <td>
-                <!--                <a th:attr="onclick=|attachFacilityInfo('${contract.getAttachFacilityName()}')|"-->
-                <!--                   class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#attachFacility">-->
-                <button>
-                    Danh sách các dịch vụ đi kèm
+                <button th:attr="onclick=|listAttachFacility(${contract.getId()})|" type="button"
+                        class="btn btn-primary"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal0">
+                    Danh sách dịch vụ đi kèm
                 </button>
-                <!--                </a>-->
 
             </td>
         </tr>
@@ -65,7 +67,7 @@
 <!-- Modal thêm mới contract detail -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form th:action="@{/contract/createContractDetail}" th:object="${contractDetail}" th:method="post" >
+        <form th:action="@{/contract/createContractDetail}" th:object="${contractDetail}" th:method="post">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Add contract</h5>
@@ -74,26 +76,25 @@
                 <div class="modal-body">
 
                     <div hidden class="input-group mb-3">
-<!--                        <label class="input-group-text" for="contractId">ID Contract</label>-->
-<!--                       <input  id="contractId" value="${contract.id}">-->
                         <label for="idContract" class="form-label">Contract Id</label>
                         <input type="text" class="form-control" id="idContract" th:field="*{contract}">
                     </div>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="inputGroupSelect01">Attach facility </label>
-                        <select class="form-select" id="inputGroupSelect01">
+                        <select class="form-select" id="inputGroupSelect01" th:field="*{facilitySet}">
                             <option selected th:value="-1">Choose...</option>
-                            <option  th:each="attachFacility : ${attachFacilities}" th:text="${attachFacility.name}" th:value="attachFacility.id"></option>
+                            <option th:each="attachFacility : ${attachFacilities}" th:text="${attachFacility.name}"
+                                    th:value="${attachFacility.id}"></option>
                         </select>
                     </div>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="quantity">Quantity </label>
-                        <input type="number" id="quantity" >
+                        <input type="number" id="quantity" th:field="*{quantity}">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </form>
@@ -113,33 +114,36 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label th:for="facility" class="form-label">Dịch vụ</label>
-                        <select th:field ="*{facility}" >
-                            <option th:each="facility : ${facilityList}" th:value="${facility.id}" th:text="${facility.name}"></option>
+                        <select th:field="*{facility}">
+                            <option th:each="facility : ${facilityList}" th:value="${facility.id}"
+                                    th:text="${facility.name}"></option>
                         </select>
                     </div>
                     <div class="mb-3">
-                    <label th:for="customer" class="form-label">Khách hàng</label>
-                    <select th:field ="*{customer}" >
-                        <option th:each="customer : ${customerList}" th:value="${customer.id}" th:text="${customer.name}"></option>
-                    </select>
-                </div>
+                        <label th:for="customer" class="form-label">Khách hàng</label>
+                        <select th:field="*{customer}">
+                            <option th:each="customer : ${customerList}" th:value="${customer.id}"
+                                    th:text="${customer.name}"></option>
+                        </select>
+                    </div>
                     <div class="mb-3">
                         <label th:for="employee" class="form-label">Nhân viên</label>
-                        <select th:field ="*{employee}" >
-                            <option th:each="employee : ${employeeList}" th:value="${employee.id}" th:text="${employee.name}"></option>
+                        <select th:field="*{employee}">
+                            <option th:each="employee : ${employeeList}" th:value="${employee.id}"
+                                    th:text="${employee.name}"></option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label th:for="startDay" class="form-label">Ngày làm hợp đồng</label>
-                        <input th:field ="*{startDate}" type="date" class="form-control width-form">
+                        <input th:field="*{startDate}" type="date" class="form-control width-form">
                     </div>
                     <div class="mb-3">
                         <label th:for="endDay" class="form-label">Ngày kết thúc</label>
-                        <input th:field ="*{endDate}"  type="date" class="form-control width-form">
+                        <input th:field="*{endDate}" type="date" class="form-control width-form">
                     </div>
                     <div class="mb-3">
                         <label th:for="deposit" class="form-label">Tiền đặt cọc</label>
-                        <input th:field ="*{deposit}"  type="text" class="form-control width-form">
+                        <input th:field="*{deposit}" type="text" class="form-control width-form">
                     </div>
 
                 </div>
@@ -151,6 +155,75 @@
         </div>
     </div>
 </div>
+
+
+<!-- +danh sách dịch vị đi kèm-->
+<div class="modal fade" id="exampleModal0" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel1">Danh sách dịch vụ đi kèm</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Stt</th>
+                        <th>Tên dịch vụ</th>
+                        <th>Giá</th>
+                        <th>Đơn vị</th>
+                        <th>Trạng thái</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                    </thead>
+                    <tbody id="myTableContractDetail">
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Thư viên ajax-->
+<script
+        src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous"></script>
+<!-- hiển thị chi tiết đối tượng bằng ajac-->
+<script>
+    function listAttachFacility(id) {
+        $.ajax({
+            url: "http://localhost:8080/api-attachFacility/showListAttachFacility/" + id,
+            type: "GET",
+            contentType: "application/json; charset =utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log(data)
+                let myTableContractDetail = "";
+                for (let i = 0; i < data.length; i++) {
+                    myTableContractDetail +=
+                        `<tr>
+                               <th>${i + 1}</th>
+                               <td>${data[i].name}</td>
+                               <td>${data[i].cost}</td>
+                               <td>${data[i].unit}</td>
+                               <td>${data[i].status}</td>
+                               <td>${data[i].sumQuantity}</td>
+                               <td>${data[i].sumMoney}</td>
+                         </tr>
+                             `
+                }
+                console.log(myTableContractDetail)
+                $("#myTableContractDetail").empty();
+                $("#myTableContractDetail").append(myTableContractDetail);
+            }
+        });
+    }
+</script>
 
 <!--Phân trang-->
 <div style="text-align: right; margin-right: 25px">
@@ -183,7 +256,6 @@
         document.getElementById("idContract").value = id;
     }
 </script>
-
 
 
 </body>

@@ -23,11 +23,7 @@ public class ContractDetail {
         this.facilitySet = facilitySet;
     }
 
-    public ContractDetail(int quantity, Contract contract, AttachFacility facilitySet) {
-        this.quantity = quantity;
-        this.contract = contract;
-        this.facilitySet = facilitySet;
-    }
+
 
     public ContractDetail() {
 

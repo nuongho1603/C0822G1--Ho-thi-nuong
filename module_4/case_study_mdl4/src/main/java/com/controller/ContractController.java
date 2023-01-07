@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/contract")
@@ -65,8 +66,16 @@ public class ContractController {
 
     @PostMapping("/createContractDetail")
     public String create(Model model, @ModelAttribute("contractDetail") ContractDetail contractDetail, @PageableDefault(size = 5) Pageable pageable, RedirectAttributes redirectAttributes) {
+
+        AttachFacility attachFacility = iAttractFacilityService.findById(contractDetail.getFacilitySet().getId());
+        contractDetail.setFacilitySet(attachFacility);
         iContractDetailService.addContractDetail(contractDetail);
         redirectAttributes.addFlashAttribute("mess", "ADD thành công rùi đó bạn à! ");
         return "redirect:/contract";
     }
+//
+//    @GetMapping ("/lised")
+//    public String listed(Model model){
+//        return "contract/list";
+//    }
 }
