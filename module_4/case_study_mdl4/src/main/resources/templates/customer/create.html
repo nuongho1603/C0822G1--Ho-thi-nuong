@@ -16,50 +16,57 @@
 <div align="center">
     <form action="/customer/save" method="post" th:object="${customerDto}"  th:charset="utf-8" >
         <caption>
-        <p style="color: darkolivegreen"> <b>NEW CUSTOMER </b></p>
-    </caption>
-        <table class="table-success" border="1">
+            <p style="color: darkolivegreen"> <b>EDIT CUSTOMER </b></p>
+        </caption>
+        <table class="table-success" border="3">
             <input type="hidden" th:field="*{id}">
             <tr>
                 <th> <label th:for="name" style="color: darkolivegreen"> Name: </label></th>
                 <td class="table-secondary" >
                     <input type="text" th:field="*{name}">
+                    <h6 th:errors="*{name}" style="color: red"></h6>
                 </td>
             </tr >
             <tr>
                 <th> <label th:for="dateOfBirth" style="color: darkolivegreen"> Date Of Birth: </label></th>
                 <td>
                     <input type="date" th:field="*{dateOfBirth}">
+                    <h6 th:errors="*{dateOfBirth}" style="color: red"></h6>
                 </td>
             </tr>
             <tr>
                 <th><label th:for="gender" style="color: darkolivegreen"> Gender: </label></th>
                 <td style="color: darkolivegreen">
                     <input type="text" th:field="*{gender}">
+                    <h6 th:errors="*{gender}" style="color: red"></h6>
                 </td>
             </tr>
             <tr>
                 <th><label th:for="idCard" style="color: darkolivegreen"> ID Card: </label></th>
                 <td>
                     <input type="text" th:field="*{idCard}">
+                    <h6 th:errors="*{idCard}" style="color: red"></h6>
                 </td>
             </tr>
             <tr>
                 <th><label th:for="phoneNumber" style="color: darkolivegreen"> Phone Number: </label></th>
                 <td>
                     <input type="text" th:field="*{phoneNumber}">
+                    <h6 th:errors="*{phoneNumber}" style="color: red"></h6>
                 </td>
             </tr>
             <tr>
                 <th><label th:for="email" style="color: darkolivegreen"> Email: </label></th>
                 <td>
                     <input type="text" th:field="*{email}">
+                    <h6 th:errors="*{email}" style="color: red"></h6>
                 </td>
             </tr>
             <tr class="table-dark">
                 <th><label th:for="address" style="color: darkolivegreen"> Address: </label></th>
                 <td>
                     <input type="text" th:field="*{address}">
+                    <h6 th:errors="*{address}" style="color: red"></h6>
                 </td>
             </tr>
             <tr>
@@ -70,9 +77,9 @@
                     </select>
                 </td>
             </tr>
-            <tr>
+            <tr class="table-danger">
                 <td colspan="2" align="center">
-                    <input STYLE="background: darkolivegreen" type="submit" value="Save"/>
+                    <input type="submit" STYLE="background: darkolivegreen" value="Save"/>
                 </td>
             </tr>
         </table>

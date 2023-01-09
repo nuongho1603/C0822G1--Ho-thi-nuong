@@ -18,7 +18,7 @@ public class FacilityDto {
     private String standardRoom;
     private String descriptionOtherConvenience;
     private double poolArea;
-    @Min(value = 0)
+    @Min(value = 1)
     private int numberOfFloors;
     private String facilityFree;
 

@@ -1,16 +1,10 @@
 package com.model.dto;
 
-import com.model.customer.Customer;
 import com.model.customer.CustomerType;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-import org.springframework.validation.annotation.Validated;
-
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 
@@ -18,14 +12,17 @@ public class CustomerDto implements Validator {
     private int id;
     @Pattern(regexp = "[a-zA-Z ]+",message = "Không chứa ký tự đặc biệt và số! ")
     private String name;
+    @NotBlank(message = "Bạn biết bạn sai ở đâu ch? Bạn đang để trống field này!ok! ")
     private String dateOfBirth;
     private String gender;
     @Pattern(regexp = "[0-9]{9,12}",message = "Chưa đúng định dạng ạ! ")
+    @NotBlank
     private String idCard;
-    @Pattern(regexp = "(090|091|(84)+)[0-9]{7}",message = " Số điện thoại phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx hoặc\n" +
+    @Pattern(regexp = "^((0|[(]84[)][+])9[01]\\d{7})| *$",message = " Số điện thoại phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx hoặc\n" +
             "(84)+90xxxxxxx hoặc (84)+91xxxxxxx.")
     private String phoneNumber;
     @Pattern(regexp = "[\\w]+[@][\\w]+.[\\w]+",message = "Vui lòng gõ đúng định dạng của email!")
+    @NotBlank
     private String email;
     @NotBlank
     private String address;

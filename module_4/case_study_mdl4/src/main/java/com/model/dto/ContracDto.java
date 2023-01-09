@@ -12,7 +12,7 @@ public class ContracDto {
     private int id;
     private String startDate;
     private String endDate;
-    @Min(value = 0)
+    @Min(value = 1)
     private double deposit;
     private Customer customer;
     private Facility facility;
