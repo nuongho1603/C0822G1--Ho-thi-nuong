@@ -23,9 +23,11 @@ public class FacilityService implements IFacilityService {
 
     @Override
     public boolean save(Facility facility) {
-        for (int i = 0; i <findAll().size() ; i++){
-            if(facility.getName().equals(findAll().get(i).getName())){
-                return false;
+        for (int i = 0; i < findAll().size(); i++) {
+            if (findAll().get(i).getId() != facility.getId()) {
+                if (facility.getName().equals(findAll().get(i).getName())) {
+                    return false;
+                }
             }
         }
         iFacilityRepository.save(facility);
@@ -33,9 +35,10 @@ public class FacilityService implements IFacilityService {
     }
 
     @Override
-    public Optional<Facility> findById(int id) {
-        return iFacilityRepository.findById(id);
+    public Facility findById(int id) {
+        return iFacilityRepository.findById(id).orElse(null);
     }
+
 
     @Override
     public void remove(int id) {
@@ -44,6 +47,6 @@ public class FacilityService implements IFacilityService {
 
     @Override
     public Page<Facility> searchName(String name, String facilityType, Pageable pageable) {
-        return iFacilityRepository.searchName(name,facilityType,pageable);
+        return iFacilityRepository.searchName(name, facilityType, pageable);
     }
 }

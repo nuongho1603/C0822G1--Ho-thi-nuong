@@ -9,6 +9,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+//    @Column(columnDefinition = "varchar(5)")
     private String name;
     private String dateOfBirth;
     private String gender;

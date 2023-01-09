@@ -47,7 +47,7 @@ public class CustomerController {
 
     @GetMapping("/edit/{id}")
     public String showEdit(Model model, @PathVariable("id") int id) {
-        Customer customer = iCustomerService.findById(id);
+       Customer customer = iCustomerService.findById(id);
         CustomerDto customerDto = new CustomerDto();
         BeanUtils.copyProperties(customer, customerDto);
         List<CustomerType> customerTypes = iCustomerTypeService.findAll();

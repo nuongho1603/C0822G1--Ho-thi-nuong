@@ -54,7 +54,7 @@
 <!--</form>-->
 
 <div align="center">
-    <form action="/facility/save" method="post" th:object="${facility}" th:charset="utf-8">
+    <form action="/facility/save" method="post" th:object="${facilityDto}" th:charset="utf-8">
         <caption>
             <p style="color: darkolivegreen"><b>EDIT Facility </b></p>
         </caption>
@@ -64,7 +64,7 @@
                 <th><label th:for="name"> Name: </label></th>
                 <td class="table-secondary">
                     <input type="text" th:field="*{name}">
-
+                    <h6 th:errors="*{name}" style="color: red"></h6>
                 </td>
             </tr>
             <tr>
@@ -99,24 +99,23 @@
                 <th><label th:for="descriptionOtherConvenience"> descriptionOtherConvenience: </label></th>
                 <td>
                     <input type="text" th:field="*{descriptionOtherConvenience}">
-
                 </td>
             </tr>
-            <tr class="table-dark">
+            <tr>
                 <th><label th:for="poolArea"> poolArea: </label></th>
                 <td>
                     <input type="text" th:field="*{poolArea}">
 
                 </td>
             </tr>
-            <tr class="table-dark">
+            <tr>
                 <th><label th:for="numberOfFloors"> numberOfFloors: </label></th>
                 <td>
                     <input type="text" th:field="*{numberOfFloors}">
-
+                    <h6 th:errors="*{numberOfFloors}" style="color: red"></h6>
                 </td>
             </tr>
-            <tr class="table-dark">
+            <tr>
                 <th><label th:for="facilityFree"> facilityFree: </label></th>
                 <td>
                     <input type="text" th:field="*{facilityFree}">

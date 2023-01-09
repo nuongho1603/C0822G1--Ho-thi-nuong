@@ -1,5 +1,7 @@
 package com.model.customer;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -9,7 +11,8 @@ public class CustomerType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToMany(mappedBy = "customerType" )
+    @OneToMany(mappedBy = "customerType")
+    @JsonBackReference
     private Set<Customer> customers;
 
 

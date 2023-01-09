@@ -6,9 +6,11 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import org.springframework.validation.annotation.Validated;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 
@@ -20,10 +22,12 @@ public class CustomerDto implements Validator {
     private String gender;
     @Pattern(regexp = "[0-9]{9,12}",message = "Chưa đúng định dạng ạ! ")
     private String idCard;
-    @Pattern(regexp = "(090|091|(84)+)[0-9]{7}",message = "Chưa đúng định dạng ạ! ")
+    @Pattern(regexp = "(090|091|(84)+)[0-9]{7}",message = " Số điện thoại phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx hoặc\n" +
+            "(84)+90xxxxxxx hoặc (84)+91xxxxxxx.")
     private String phoneNumber;
-    @Pattern(regexp = "[\\w]+[@][\\w]+.[\\w]+",message = "Vui lòng gõ đúng định dạng!")
+    @Pattern(regexp = "[\\w]+[@][\\w]+.[\\w]+",message = "Vui lòng gõ đúng định dạng của email!")
     private String email;
+    @NotBlank
     private String address;
     private CustomerType customerType;
 
@@ -38,7 +42,7 @@ public class CustomerDto implements Validator {
 
         char x = customer.getName().charAt(0);
         if (x < 'A' || x > 'Z') {
-            errors.rejectValue("firstName", "firstName", "ký tự đầu tiên phải viết hoa nha! ");
+            errors.rejectValue("name", "name", "ký tự đầu tiên phải viết hoa nha! ");
         }
     }
 

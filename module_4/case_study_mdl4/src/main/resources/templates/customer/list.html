@@ -10,16 +10,16 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<div th:insert="~{layout::header}" ></div>
+<div th:insert="~{layout::header}"></div>
 
-<table border="1" class="table table-success table-striped" >
+<table border="1" class="table table-success table-striped">
     <form th:action="@{/customer}">
         <div class="container d-flex">
             <input type="text" placeholder="Nhập tên.." aria-label="Search" name="name" size="15">
             <input type="text" placeholder="Nhập email.." aria-label="Search" name="email" size="20">
 
             <select class="form-control" placeholder="Nhập loại khách.." name="customerType" style="width: 200px">
-                <option th:text="${''}" ></option>
+                <option th:text="${''}"></option>
                 <option th:each="customer:${customerTypes}"
                         th:value="${customer.id}"
                         th:text="${customer.name}">
@@ -42,6 +42,7 @@
         <th>Email</th>
         <th>Address</th>
         <th>Customer Type</th>
+        <th></th>
         <th></th>
         <th>
             <a th:href="@{/customer/create}">
@@ -73,9 +74,94 @@
                 Delete
             </a>
         </td>
+        <td>
+            <button th:attr="onclick=|info('${customer.id}')|" type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal0">
+                View
+            </button>
+
+
+        </td>
     </tr>
     </tbody>
 </table>
+
+<div class="modal fade" id="exampleModal0" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel1">Xem chi tiết khách hàng </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-success table-striped;modal-dialog modal-xl">
+                    <thead>
+                    <tr>
+                        <!--                        <th>Stt</th>-->
+                        <th>Name Customer</th>
+                        <th>Date Of Birth</th>
+                        <th>gender</th>
+                        <th>id Card</th>
+                        <th>phoneNumber</th>
+                        <th>email</th>
+                        <th>address</th>
+                        <th>Customer Type Name</th>
+
+                    </tr>
+                    </thead>
+                    <tbody id="abc">
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Thư viên ajax-->
+<script
+        src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous"></script>
+<!-- hiển thị chi tiết đối tượng bằng ajac-->
+<script>
+    function info(id) {
+        $.ajax({
+            url: "http://localhost:8080/api-viewCustomerDetail/view/" + id,
+            type: "GET",
+            contentType: "application/json; charset =utf-8",
+            dataType: "json",
+            success: function (data) {
+                // debugger
+                // console.log(data)
+                let myTableContractDetail = '';
+                // for (let i = 0; i < data.length; i++) {
+                myTableContractDetail +=
+                    `<tr>
+                               <td>${data.name}</td>
+                               <td>${data.dateOfBirth}</td>
+                               <td>${data.gender}</td>
+                               <td>${data.idCard}</td>
+                               <td>${data.phoneNumber}</td>
+                               <td>${data.email}</td>
+                               <td>${data.address}</td>
+                               <td>${data.customerType.name}</td>
+                         </tr>
+                             `
+
+                $('#abc').html(myTableContractDetail)
+                // console.log(myTableContractDetail)
+
+                // $("#myTableContractDetail").empty();
+                // $("#myTableContractDetail").append(myTableContractDetail);
+            }
+        });
+    }
+</script>
 
 <!--Phân trang-->
 <div style="text-align: right; margin-right: 150px">

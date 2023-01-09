@@ -1,7 +1,6 @@
 package com.service.customer.impl;
 
 import com.model.customer.Customer;
-import com.model.customer.CustomerType;
 import com.repository.ICustomerRepository;
 import com.service.customer.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +34,13 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public Customer findById(int id) {
-        return iCustomerRepository.getReferenceById(id);
+        return iCustomerRepository.findById(id).orElse(null);
     }
+
+//    @Override
+//    public Customer findById(int id) {
+//        return iCustomerRepository.getReferenceById(id);
+//    }
 
     @Override
     public Page<Customer> searchName(String name, String customerType, String email, Pageable pageable) {

@@ -2,18 +2,22 @@ package com.controller;
 
 import com.model.customer.Customer;
 import com.model.customer.CustomerType;
+import com.model.dto.FacilityDto;
 import com.model.facility.Facility;
 import com.model.facility.FacilityType;
 import com.model.facility.RentType;
 import com.service.facility.IFacilityService;
 import com.service.facility.IFacilityTypeService;
 import com.service.facility.IRentTypeService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -46,21 +50,34 @@ public class FacilityController {
 
     @GetMapping("/edit/{id}")
     public String showEdit(Model model, @PathVariable("id") int id) {
+        Facility facility = iFacilityService.findById(id);
+        FacilityDto facilityDto = new FacilityDto();
+        BeanUtils.copyProperties(facility,facilityDto);
         List<FacilityType> facilityTypes = iFacilityTypeService.findAll();
         List<RentType> rentTypes = iRentTypeService.findAll();
+
+        model.addAttribute("facilityDto", facilityDto);
         model.addAttribute("facilityTypes", facilityTypes);
         model.addAttribute("rentTypes", rentTypes);
-        Optional<Facility> facility = iFacilityService.findById(id);
-        model.addAttribute("facility", facility);
-        return "/facility/edit";
+
+        return "facility/edit";
     }
 
     @PostMapping("/save")
-    public String save(Model model, @ModelAttribute("facility") Facility facility, RedirectAttributes redirectAttributes) {
+    public String save(Model model, @Validated @ModelAttribute("facilityDto") FacilityDto facilityDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+     if(bindingResult.hasErrors()){
+         List<FacilityType> facilityTypes= iFacilityTypeService.findAll();
+         List<RentType> rentTypes= iRentTypeService.findAll();
+         model.addAttribute("facilityTypes",facilityTypes);
+         model.addAttribute("rentTypes",rentTypes);
+         return "facility/edit";
+     }
+     Facility facility = new Facility();
+     BeanUtils.copyProperties(facilityDto,facility);
        boolean check = iFacilityService.save(facility);
        String mess = "Bạn đã thao tác thành công!";
        if(!check){
-           mess="Thao tac that bai!";
+           mess="Thao tac that bai!Bạn hãy check lại dữ liệu đầu vào :(  ";
        }
        redirectAttributes.addFlashAttribute("mess", mess);
         return "redirect:/facility";
@@ -69,7 +86,7 @@ public class FacilityController {
     @PostMapping("/delete")
     public String delete(@RequestParam("deleteId") int deleteId, RedirectAttributes redirectAttributes) {
         iFacilityService.remove(deleteId);
-        redirectAttributes.addFlashAttribute("mess", "Xóa thành công!");
+        redirectAttributes.addFlashAttribute("mess", "Xóa thành công :) !");
         return "redirect:/facility";
     }
 
