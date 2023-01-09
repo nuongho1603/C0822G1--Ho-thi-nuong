@@ -1,7 +1,5 @@
 package com.controller;
 
-import com.model.customer.Customer;
-import com.model.customer.CustomerType;
 import com.model.dto.FacilityDto;
 import com.model.facility.Facility;
 import com.model.facility.FacilityType;
@@ -22,7 +20,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/facility")

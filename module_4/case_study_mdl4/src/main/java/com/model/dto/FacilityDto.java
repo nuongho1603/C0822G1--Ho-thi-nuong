@@ -2,23 +2,24 @@ package com.model.dto;
 
 import com.model.facility.FacilityType;
 import com.model.facility.RentType;
-import org.springframework.beans.factory.annotation.Value;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 public class FacilityDto {
     private int id;
+    @NotBlank(message = "không được phép bỏ trống! ")
     private String name;
+    @Min(value = 1, message = "Diện tích phải > 0 ")
     private int area;
+    @Min(value = 1, message = "Giá phải > 0 ")
     private double cost;
+    @Min(value = 1, message = "Max people phải > 0 ")
     private int maxPeople;
     private String standardRoom;
     private String descriptionOtherConvenience;
     private double poolArea;
-    @Min(value = 1)
+    @Min(value = 1, message = "Số tầng phải > 0 ")
     private int numberOfFloors;
     private String facilityFree;
 

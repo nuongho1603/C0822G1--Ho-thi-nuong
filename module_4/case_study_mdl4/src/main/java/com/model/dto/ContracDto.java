@@ -12,7 +12,7 @@ public class ContracDto {
     private int id;
     private String startDate;
     private String endDate;
-    @Min(value = 1)
+    @Min(value = 1, message = "Tiền đặt cọc phải là số dương")
     private double deposit;
     private Customer customer;
     private Facility facility;

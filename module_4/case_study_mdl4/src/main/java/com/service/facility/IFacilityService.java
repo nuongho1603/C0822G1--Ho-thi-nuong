@@ -1,14 +1,10 @@
 package com.service.facility;
 
-import com.model.customer.Customer;
-import com.model.dto.FacilityDto;
 import com.model.facility.Facility;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface IFacilityService {
     List<Facility> findAll();
