@@ -1,30 +1,42 @@
 package com.model.employee.userRole;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int roleId;
-    private String roleName;
+    private Long id;
+    private String name;
 
-    public int getRoleId() {
-        return roleId;
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;
+
+    public Role() {
     }
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
+    public Long getId() {
+        return id;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }
